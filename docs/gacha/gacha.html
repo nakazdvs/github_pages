@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>無題ドキュメント</title>
+<meta name="viewport" content="width=devise-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="./css/gacha.css">
+</head>
+<body>
+
+<div id="gacha-app">
+<transition mode="out-in">
+	<start-overlay @gacha="start" v-if="stop"></start-overlay>
+</transition>
+<gacha-body ref="body"></gacha-body>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
+<script>
+'use strict'
+const startOverlay = Vue.extend({
+	template: `
+		<div class="start_overlay">
+			<img src="./img/gacha/about.png" class="about">
+			<a href="#" class="btn" @click.prevent="gacha"><img src="./img/gacha/btn-gacha.png"></a>
+		</div>
+	`,
+	methods: {
+		gacha() {
+			this.$emit('gacha')
+		}
+	}
+})
+const gachaBody = Vue.extend({
+	data() {
+		return {
+			isRotate: false,
+			isZoom: false,
+			isDrop: false,
+			isFlash: false
+		}
+	},
+	template: `
+		<div class="gacha-body">
+			<div class="wrap":class="{zoom:isZoom}" ref="wrap">
+				<img src="./img/gacha/gacha-body.png" class="body">
+				<div class="egg_wrap" :class="{drop:isDrop}">
+					<img src="./img/gacha/gacha-egg-effect.png" class="effect" :class="{flash:isFlash}">
+					<img src="./img/gacha/gacha-egg-g.png" class="egg">
+				</div>
+				<img src="./img/gacha/gacha-front.png" class="front">
+				<img src="./img/gacha/gacha-handle.png" class="handle" :class="{rotate:isRotate}" ref="handle">
+			</div>
+		</div>
+	`,
+	methods: {
+		rotate() {
+			this.isRotate = true
+			const handle = this.$refs.handle
+			handle.addEventListener('animationend',(e) => {
+				this.isZoom = true
+				e.stopPropagation()
+			})
+			const wrap = this.$refs.wrap
+			wrap.addEventListener('animationend',() => {
+				this.isDrop = true
+				this.isFlash = true
+			})
+		}
+	}
+})
+new Vue({
+	el: "#gacha-app",
+	data: {
+		stop: true
+	},
+	components: {
+		startOverlay,
+		gachaBody
+	},
+	methods: {
+		start() {
+			this.stop = false
+			this.$refs.body.rotate()
+		}
+	}
+});
+
+</script>
+</body>
+</html>

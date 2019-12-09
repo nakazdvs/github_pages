@@ -1,0 +1,279 @@
+body, h1, h2, ul, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
+  padding: 2.7vw;
+}
+
+a {
+  text-decoration: none;
+}
+
+#gacha-app {
+  position: relative;
+  width: 100%;
+  height: 75.2vw;
+  background: url(../img/gacha/gacha-wrap-bg.png) no-repeat center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#gacha-app .start_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+#gacha-app .start_overlay .about {
+  width: 90%;
+  margin-bottom: 7.2vw;
+}
+
+#gacha-app .start_overlay .btn {
+  display: block;
+  width: 87%;
+}
+
+#gacha-app .start_overlay .btn > img {
+  width: 100%;
+}
+
+#gacha-app .start_overlay.v-leave-active {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+#gacha-app .start_overlay.v-leave-to {
+  opacity: 0;
+}
+
+#gacha-app .gacha-body {
+  position: absolute;
+  top: 1.3vw;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1;
+  width: 74.7vw;
+  height: 100%;
+}
+
+#gacha-app .wrap {
+  width: 74.7vw;
+  height: 100%;
+}
+
+#gacha-app .wrap.zoom {
+  -webkit-animation: .8s ease-in-out .5s forwards zoom;
+          animation: .8s ease-in-out .5s forwards zoom;
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    -webkit-transform: scalse(1);
+            transform: scalse(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2) translateY(-30.7vw);
+            transform: scale(1.2) translateY(-30.7vw);
+  }
+}
+
+@keyframes zoom {
+  0% {
+    -webkit-transform: scalse(1);
+            transform: scalse(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2) translateY(-30.7vw);
+            transform: scale(1.2) translateY(-30.7vw);
+  }
+}
+
+#gacha-app .wrap .body {
+  width: 100%;
+}
+
+#gacha-app .wrap .egg_wrap {
+  position: absolute;
+  top: 50.7vw;
+  left: 30.4vw;
+  width: 14.1vw;
+  height: 17.6vw;
+}
+
+#gacha-app .wrap .egg_wrap > img {
+  position: absolute;
+}
+
+#gacha-app .wrap .egg_wrap .effect {
+  opacity: 0;
+  top: -16vw;
+  left: -12.5vw;
+  width: 40vw;
+}
+
+#gacha-app .wrap .egg_wrap .effect.flash {
+  -webkit-animation: 1.3s linear .8s forwards flash;
+          animation: 1.3s linear .8s forwards flash;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0.4;
+  }
+  35% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+  }
+  55% {
+    opacity: 1.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0.4;
+  }
+  35% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+  }
+  55% {
+    opacity: 1.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#gacha-app .wrap .egg_wrap .egg {
+  width: 14.1vw;
+}
+
+#gacha-app .wrap .egg_wrap.drop {
+  -webkit-animation: .8s linear .5s forwards drop;
+          animation: .8s linear .5s forwards drop;
+}
+
+@-webkit-keyframes drop {
+  0% {
+    -webkit-transform: translateY(0px) rotate(40deg);
+            transform: translateY(0px) rotate(40deg);
+    opacity: 0;
+  }
+  55% {
+    -webkit-transform: translateY(26.7vw) rotate(1080deg);
+            transform: translateY(26.7vw) rotate(1080deg);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateY(24vw);
+            transform: translateY(24vw);
+  }
+  100% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+}
+
+@keyframes drop {
+  0% {
+    -webkit-transform: translateY(0px) rotate(40deg);
+            transform: translateY(0px) rotate(40deg);
+    opacity: 0;
+  }
+  55% {
+    -webkit-transform: translateY(26.7vw) rotate(1080deg);
+            transform: translateY(26.7vw) rotate(1080deg);
+    opacity: 1;
+  }
+  75% {
+    -webkit-transform: translateY(24vw);
+            transform: translateY(24vw);
+  }
+  100% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+}
+
+#gacha-app .wrap .front {
+  position: absolute;
+  top: 37.3vw;
+  left: 19.7vw;
+  width: 35.2vw;
+}
+
+#gacha-app .wrap .handle {
+  position: absolute;
+  top: 39.7vw;
+  left: 24vw;
+  width: 26.7vw;
+}
+
+#gacha-app .wrap .handle.rotate {
+  -webkit-animation: 1.8s ease-in-out 1.2s rotate;
+          animation: 1.8s ease-in-out 1.2s rotate;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  40%, 60% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  40%, 60% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}

@@ -21,7 +21,7 @@
 const startOverlay = Vue.extend({
 	template: `
 		<div class="start_overlay">
-			<img src="./img/gacha/about.png" class="about">
+			<img src="./img/about.png" class="about">
 			<a href="#" class="btn" @click.prevent="gacha"><img src="./img/gacha/btn-gacha.png"></a>
 		</div>
 	`,
@@ -43,13 +43,13 @@ const gachaBody = Vue.extend({
 	template: `
 		<div class="gacha-body">
 			<div class="wrap":class="{zoom:isZoom}" ref="wrap">
-				<img src="./img/gacha/gacha-body.png" class="body">
+				<img src="./img/gacha-body.png" class="body">
 				<div class="egg_wrap" :class="{drop:isDrop}">
 					<img src="./img/gacha/gacha-egg-effect.png" class="effect" :class="{flash:isFlash}">
 					<img src="./img/gacha/gacha-egg-g.png" class="egg">
 				</div>
-				<img src="./img/gacha/gacha-front.png" class="front">
-				<img src="./img/gacha/gacha-handle.png" class="handle" :class="{rotate:isRotate}" ref="handle">
+				<img src="./img/gacha-front.png" class="front">
+				<img src="./img/gacha-handle.png" class="handle" :class="{rotate:isRotate}" ref="handle">
 			</div>
 		</div>
 	`,

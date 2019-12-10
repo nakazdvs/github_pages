@@ -234,8 +234,8 @@ a {
 }
 
 .gacha_app .gacha_frame .gacha_body.slideup {
-  -webkit-animation: 2s ease-out .5s forwards slideup;
-          animation: 2s ease-out .5s forwards slideup;
+  -webkit-animation: 1s ease-out .5s forwards slideup;
+          animation: 1s ease-out .5s forwards slideup;
 }
 
 @-webkit-keyframes slideup {

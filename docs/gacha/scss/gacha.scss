@@ -133,7 +133,7 @@ a {
 				}
 			}
 			&.slideup {
-				animation: 2s ease-out .5s forwards slideup;
+				animation: 1s ease-out .5s forwards slideup;
 				@keyframes slideup {
 					0% {
 						transform: translateY(0);

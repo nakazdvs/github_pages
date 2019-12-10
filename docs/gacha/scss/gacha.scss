@@ -120,10 +120,11 @@ a {
 							40% {
 								transform: translateY(vw(95));
 							}
-							50% {
+							50%,80% {
 								transform: translateY(vw(100));
+								z-index: 2;
 							}
-							80%,to {
+							100% {
 								transform: translateY(vw(100)) rotate(-15deg);
 								z-index: 2;
 							}

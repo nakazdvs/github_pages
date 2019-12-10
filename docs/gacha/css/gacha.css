@@ -188,11 +188,12 @@ a {
     -webkit-transform: translateY(25.3vw);
             transform: translateY(25.3vw);
   }
-  50% {
+  50%, 80% {
     -webkit-transform: translateY(26.7vw);
             transform: translateY(26.7vw);
+    z-index: 2;
   }
-  80%, to {
+  100% {
     -webkit-transform: translateY(26.7vw) rotate(-15deg);
             transform: translateY(26.7vw) rotate(-15deg);
     z-index: 2;
@@ -220,11 +221,12 @@ a {
     -webkit-transform: translateY(25.3vw);
             transform: translateY(25.3vw);
   }
-  50% {
+  50%, 80% {
     -webkit-transform: translateY(26.7vw);
             transform: translateY(26.7vw);
+    z-index: 2;
   }
-  80%, to {
+  100% {
     -webkit-transform: translateY(26.7vw) rotate(-15deg);
             transform: translateY(26.7vw) rotate(-15deg);
     z-index: 2;

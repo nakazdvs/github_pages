@@ -191,11 +191,15 @@ a {
   50%, 80% {
     -webkit-transform: translateY(26.7vw);
             transform: translateY(26.7vw);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
     z-index: 2;
   }
   100% {
     -webkit-transform: translateY(26.7vw) rotate(-15deg);
             transform: translateY(26.7vw) rotate(-15deg);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
     z-index: 2;
   }
 }
@@ -224,11 +228,15 @@ a {
   50%, 80% {
     -webkit-transform: translateY(26.7vw);
             transform: translateY(26.7vw);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
     z-index: 2;
   }
   100% {
     -webkit-transform: translateY(26.7vw) rotate(-15deg);
             transform: translateY(26.7vw) rotate(-15deg);
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
     z-index: 2;
   }
 }

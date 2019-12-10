@@ -122,10 +122,12 @@ a {
 							}
 							50%,80% {
 								transform: translateY(vw(100));
+								transform-origin: center bottom;
 								z-index: 2;
 							}
 							100% {
 								transform: translateY(vw(100)) rotate(-15deg);
+								transform-origin: center bottom;
 								z-index: 2;
 							}
 						}

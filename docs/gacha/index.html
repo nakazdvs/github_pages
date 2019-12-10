@@ -8,16 +8,136 @@
 </head>
 <body>
 
-<div id="gacha-app">
+
+<div id="vueGachaApp" class="gacha_app">
+	<gacha-body :obj="gachaObj"></gacha-body>
+	<a href="#" @click="change">スタート</a>
+</div>
+
+<!--div id="gacha-app">
 <transition mode="out-in">
 	<start-overlay @gacha="start" v-if="stop"></start-overlay>
 </transition>
 <gacha-body ref="body"></gacha-body>
-</div>
+</div-->
 
 <script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
 <script>
 'use strict'
+const gachaBody = Vue.extend({
+	template: `
+		<div class="gacha_frame">
+			<div class="gacha_body" :class="upperSlide" ref="wrap">
+				<img src="./img/gacha_body.png" class="body">
+				<div class="hide_capsule_wrap">
+					<img src="./img/gacha_effect.png" class="effect" :class="flash" ref="effect">
+					<img src="./img/gacha_capsule_g.png" class="capsule" :class="drop">
+				</div>
+				<img src="./img/gacha_front.png" class="front">
+				<img src="./img/gacha_handle.png" class="handle" :class="rotate" ref="handle">
+			</div>
+			<component :is="result" :obj="resultObj"></component>
+		</div>
+	`,
+	data() {
+		return {
+			isRotated: false,
+			isTranslated: false,
+			result: 'jackpot',
+			resultObj: {
+				isResult: false
+			}
+		}
+	},
+	props: {
+		obj: {
+			type: Object
+		}
+	},
+	components: {
+		'jackpot': {
+			template: `<div class="result_jackpot" :class="open"></div>`,
+			props: {
+				obj: {
+					type: Object
+				},
+			},
+			computed: {
+				open() {
+					return {
+						open: this.obj.isResult
+					}
+				}
+			}
+		},
+	},
+	computed: {
+		rotate() {
+			return {
+				rotate: this.obj.isStart
+			}
+		},
+		upperSlide() {
+			return {
+				slideup: this.isRotated
+			}
+		},
+		drop() {
+			return {
+				drop: this.isTranslated
+			}
+		},
+		flash() {
+			return {
+				flash: this.isTranslated
+			}
+		}
+	},
+	mounted(){
+		this.rotated()
+		this.translated()
+		this.gachad()
+	},
+	methods: {
+		rotated() {
+			const handle = this.$refs.handle
+			handle.addEventListener('animationend',(e) => {
+				this.isRotated = true
+				e.stopPropagation()
+			})
+		},
+		translated() {
+			const wrap = this.$refs.wrap
+			wrap.addEventListener('animationend',() => {
+				this.isTranslated = true
+			})
+		},
+		gachad() {
+			const effect = this.$refs.effect
+			effect.addEventListener('animationend',() => {
+				this.$set(this.resultObj,"isResult",true)
+			})
+		}
+	}
+})
+
+new Vue({
+	el: "#vueGachaApp",
+	data: {
+		gachaObj: {
+			isStart: false
+		}
+	},
+	components: {
+		gachaBody
+	},
+	methods: {
+		change() {
+			this.$set(this.gachaObj,"isStart",true)
+		}
+	}
+})
+/*
 const startOverlay = Vue.extend({
 	template: `
 		<div class="start_overlay">
@@ -85,7 +205,7 @@ new Vue({
 		}
 	}
 });
-
+*/
 </script>
 </body>
 </html>

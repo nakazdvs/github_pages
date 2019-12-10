@@ -10,242 +10,54 @@ ul {
 body {
   font-family: Helvetica, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  tap-highlight-color: rgba(0, 0, 0, 0);
   overflow-x: hidden;
-  padding: 2.7vw;
+  background-color: #88cefa;
 }
 
 a {
   text-decoration: none;
 }
 
-#gacha-app {
+.gacha_app .gacha_frame {
   position: relative;
-  width: 100%;
-  height: 75.2vw;
-  background: url(../img/gacha-wrap-bg.png) no-repeat center;
+  width: 92vw;
+  height: 74.7vw;
+  background: -webkit-linear-gradient(#fffdf0, #fcec95);
+  background: linear-gradient(#fffdf0, #fcec95);
   border-radius: 8px;
   overflow: hidden;
+  margin: 8vw auto 0;
 }
 
-#gacha-app .start_overlay {
+.gacha_app .gacha_frame .gacha_body {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-}
-
-#gacha-app .start_overlay .about {
-  width: 90%;
-  margin-bottom: 7.2vw;
-}
-
-#gacha-app .start_overlay .btn {
-  display: block;
-  width: 87%;
-}
-
-#gacha-app .start_overlay .btn > img {
-  width: 100%;
-}
-
-#gacha-app .start_overlay.v-leave-active {
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-#gacha-app .start_overlay.v-leave-to {
-  opacity: 0;
-}
-
-#gacha-app .gacha-body {
-  position: absolute;
-  top: 1.3vw;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: 1;
+  top: 5.6vw;
+  left: 8.7vw;
   width: 74.7vw;
-  height: 100%;
+  height: 97.3vw;
 }
 
-#gacha-app .wrap {
-  width: 74.7vw;
-  height: 100%;
-}
-
-#gacha-app .wrap.zoom {
-  -webkit-animation: .8s ease-in-out .5s forwards zoom;
-          animation: .8s ease-in-out .5s forwards zoom;
-}
-
-@-webkit-keyframes zoom {
-  0% {
-    -webkit-transform: scalse(1);
-            transform: scalse(1);
-  }
-  100% {
-    -webkit-transform: scale(1.2) translateY(-30.7vw);
-            transform: scale(1.2) translateY(-30.7vw);
-  }
-}
-
-@keyframes zoom {
-  0% {
-    -webkit-transform: scalse(1);
-            transform: scalse(1);
-  }
-  100% {
-    -webkit-transform: scale(1.2) translateY(-30.7vw);
-            transform: scale(1.2) translateY(-30.7vw);
-  }
-}
-
-#gacha-app .wrap .body {
+.gacha_app .gacha_frame .gacha_body .body {
   width: 100%;
 }
 
-#gacha-app .wrap .egg_wrap {
+.gacha_app .gacha_frame .gacha_body .front {
   position: absolute;
-  top: 50.7vw;
-  left: 30.4vw;
-  width: 14.1vw;
-  height: 17.6vw;
+  top: 38.1vw;
+  left: 20.3vw;
+  width: 34.4vw;
 }
 
-#gacha-app .wrap .egg_wrap > img {
+.gacha_app .gacha_frame .gacha_body .handle {
   position: absolute;
-}
-
-#gacha-app .wrap .egg_wrap .effect {
-  opacity: 0;
-  top: -16vw;
-  left: -12.5vw;
-  width: 40vw;
-}
-
-#gacha-app .wrap .egg_wrap .effect.flash {
-  -webkit-animation: 1.3s linear .8s forwards flash;
-          animation: 1.3s linear .8s forwards flash;
-}
-
-@-webkit-keyframes flash {
-  0% {
-    -webkit-transform: scale(0.4);
-            transform: scale(0.4);
-    opacity: 0.4;
-  }
-  35% {
-    -webkit-transform: scale(1.4);
-            transform: scale(1.4);
-    opacity: 1;
-  }
-  55% {
-    opacity: 1.4;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes flash {
-  0% {
-    -webkit-transform: scale(0.4);
-            transform: scale(0.4);
-    opacity: 0.4;
-  }
-  35% {
-    -webkit-transform: scale(1.4);
-            transform: scale(1.4);
-    opacity: 1;
-  }
-  55% {
-    opacity: 1.4;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-#gacha-app .wrap .egg_wrap .egg {
-  width: 14.1vw;
-}
-
-#gacha-app .wrap .egg_wrap.drop {
-  -webkit-animation: .8s linear .5s forwards drop;
-          animation: .8s linear .5s forwards drop;
-}
-
-@-webkit-keyframes drop {
-  0% {
-    -webkit-transform: translateY(0px) rotate(40deg);
-            transform: translateY(0px) rotate(40deg);
-    opacity: 0;
-  }
-  55% {
-    -webkit-transform: translateY(26.7vw) rotate(1080deg);
-            transform: translateY(26.7vw) rotate(1080deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translateY(24vw);
-            transform: translateY(24vw);
-  }
-  100% {
-    -webkit-transform: translateY(26.7vw);
-            transform: translateY(26.7vw);
-  }
-}
-
-@keyframes drop {
-  0% {
-    -webkit-transform: translateY(0px) rotate(40deg);
-            transform: translateY(0px) rotate(40deg);
-    opacity: 0;
-  }
-  55% {
-    -webkit-transform: translateY(26.7vw) rotate(1080deg);
-            transform: translateY(26.7vw) rotate(1080deg);
-    opacity: 1;
-  }
-  75% {
-    -webkit-transform: translateY(24vw);
-            transform: translateY(24vw);
-  }
-  100% {
-    -webkit-transform: translateY(26.7vw);
-            transform: translateY(26.7vw);
-  }
-}
-
-#gacha-app .wrap .front {
-  position: absolute;
-  top: 37.3vw;
-  left: 19.7vw;
-  width: 35.2vw;
-}
-
-#gacha-app .wrap .handle {
-  position: absolute;
-  top: 39.7vw;
-  left: 24vw;
+  top: 40.3vw;
+  left: 23.7vw;
   width: 26.7vw;
 }
 
-#gacha-app .wrap .handle.rotate {
-  -webkit-animation: 1.8s ease-in-out 1.2s rotate;
-          animation: 1.8s ease-in-out 1.2s rotate;
+.gacha_app .gacha_frame .gacha_body .handle.rotate {
+  -webkit-animation: 2.5s ease-in-out .8s rotate;
+          animation: 2.5s ease-in-out .8s rotate;
 }
 
 @-webkit-keyframes rotate {
@@ -277,3 +89,349 @@ a {
             transform: rotate(360deg);
   }
 }
+
+.gacha_app .gacha_frame .gacha_body .hide_capsule_wrap {
+  position: absolute;
+  top: 38.1vw;
+  left: 20vw;
+  width: 34.7vw;
+  height: 30.4vw;
+  box-sizing: border-box;
+}
+
+.gacha_app .gacha_frame .gacha_body .hide_capsule_wrap .effect {
+  position: absolute;
+  top: 20.3vw;
+  left: -2vw;
+  width: 38.7vw;
+  opacity: 0;
+}
+
+.gacha_app .gacha_frame .gacha_body .hide_capsule_wrap .effect.flash {
+  -webkit-animation: 1.3s linear 1.36s forwards flash;
+          animation: 1.3s linear 1.36s forwards flash;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0.4;
+  }
+  35% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+    z-index: 1;
+  }
+  55% {
+    opacity: 1.4;
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    opacity: 0.4;
+  }
+  35% {
+    -webkit-transform: scale(1.4);
+            transform: scale(1.4);
+    opacity: 1;
+    z-index: 1;
+  }
+  55% {
+    opacity: 1.4;
+    z-index: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.gacha_app .gacha_frame .gacha_body .hide_capsule_wrap .capsule {
+  position: absolute;
+  left: 5.9vw;
+  bottom: 0;
+  width: 22.7vw;
+  height: 22.7vw;
+}
+
+.gacha_app .gacha_frame .gacha_body .hide_capsule_wrap .capsule.drop {
+  -webkit-animation: 2s ease-in-out .3s forwards drop;
+          animation: 2s ease-in-out .3s forwards drop;
+}
+
+@-webkit-keyframes drop {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  20% {
+    -webkit-transform: translateY(22.7vw);
+            transform: translateY(22.7vw);
+  }
+  30% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  40% {
+    -webkit-transform: translateY(25.3vw);
+            transform: translateY(25.3vw);
+  }
+  50% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  80%, to {
+    -webkit-transform: translateY(26.7vw) rotate(-15deg);
+            transform: translateY(26.7vw) rotate(-15deg);
+    z-index: 2;
+  }
+}
+
+@keyframes drop {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  20% {
+    -webkit-transform: translateY(22.7vw);
+            transform: translateY(22.7vw);
+  }
+  30% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  40% {
+    -webkit-transform: translateY(25.3vw);
+            transform: translateY(25.3vw);
+  }
+  50% {
+    -webkit-transform: translateY(26.7vw);
+            transform: translateY(26.7vw);
+  }
+  80%, to {
+    -webkit-transform: translateY(26.7vw) rotate(-15deg);
+            transform: translateY(26.7vw) rotate(-15deg);
+    z-index: 2;
+  }
+}
+
+.gacha_app .gacha_frame .gacha_body.slideup {
+  -webkit-animation: 2s ease-out .5s forwards slideup;
+          animation: 2s ease-out .5s forwards slideup;
+}
+
+@-webkit-keyframes slideup {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-33.3vw);
+            transform: translateY(-33.3vw);
+  }
+}
+
+@keyframes slideup {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-33.3vw);
+            transform: translateY(-33.3vw);
+  }
+}
+
+.gacha_app .gacha_frame .result_jackpot {
+  position: absolute;
+  top: 3.3vw;
+  left: 4.7vw;
+  width: 81.6vw;
+  height: 66.9vw;
+  border-radius: 8px;
+  border: 2px solid #000;
+  background-color: #fff;
+  -webkit-transform-origin: center 53.3vw;
+          transform-origin: center 53.3vw;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  visibility: hidden;
+}
+
+.gacha_app .gacha_frame .result_jackpot.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+/*
+#gacha-app {
+	position: relative;
+	width: vw(345);
+	height: vw(280);
+	background: linear-gradient(#fffdf0, #fcec95);
+	border-radius: 8px;
+	overflow: hidden;
+	margin: vw(30) auto 0;
+	.start_overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.about {
+			width: 90%;
+			margin-bottom: vw(27);
+		}
+		.btn {
+			display: block;
+			width: 87%;
+			> img {
+				width: 100%;
+			}
+		}
+		&.v-leave-active {
+			transition: .5s;
+		}
+		&.v-leave-to {
+			opacity: 0;
+		}
+	}
+	.gacha-body {
+		position: absolute;
+		top: vw(5);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1;
+		width: vw(280);
+		height: 100%;
+		}
+		.wrap {
+			width: vw(280);
+			height: 100%;
+			&.zoom {
+				animation: .8s ease-in-out .5s forwards zoom;
+				@keyframes zoom {
+					0% {
+						transform: scalse(1)
+					}
+					100% {
+						transform: scale(1.2) translateY(-30.7vw);
+					}
+				}
+		}
+		.body {
+			width: 100%;
+		}
+		.egg_wrap {
+			position: absolute;
+			top: vw(190);
+			left: vw(114);
+			width: vw(53);
+			height: vw(66);
+			> img {
+				position: absolute;
+			}
+			.effect {
+				opacity: 0;
+				top: -16vw;
+				left: -12.5vw;
+				width: vw(150);
+				&.flash {
+					animation: 1.3s linear .8s forwards flash;
+					@keyframes flash {
+						0% {
+							transform: scale(0.4);
+							opacity: 0.4;
+						}
+						35% {
+							transform: scale(1.4) ;
+							opacity: 1;
+						}
+						55% {
+							opacity: 1.4;	
+						}
+						100% {
+							opacity: 0;
+						}		
+					}
+				}
+			}
+			.egg {
+				width: vw(53);
+			}
+			&.drop {
+				animation: .8s linear .5s forwards drop;
+				@keyframes drop {
+					0% {
+						transform: translateY(0px) rotate(40deg);
+						opacity: 0;
+					}
+					55%{
+						transform: translateY(26.7vw) rotate(1080deg);
+						opacity: 1;
+					}
+					75%{
+						transform: translateY(24vw) ;
+					}
+					100% {
+						transform: translateY(26.7vw) ;
+					}
+				}
+			}
+			
+		}
+		.front {
+			position: absolute;
+			top: vw(140);
+			left: vw(74);
+			width: vw(132);
+		}
+		.handle {
+			position: absolute;
+			top: vw(149);
+			left: vw(90);
+			width: vw(100);
+			&.rotate {
+				animation: 1.8s ease-in-out 1.2s rotate;
+				@keyframes rotate {
+					0% {
+						transform: rotate(0deg);
+					}
+					40%,60% {
+						transform: rotate(180deg);
+					}
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+			}
+		}
+	}
+}
+*/

@@ -10,21 +10,171 @@ ul {
 body {
   font-family:Helvetica, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  tap-highlight-color: rgba(0, 0, 0, 0);
 	overflow-x: hidden;
-	padding: vw(10);
+	background-color: #88cefa;
 }
 a {
   text-decoration: none;
 }
 
+.gacha_app {
+	.gacha_frame {
+		position: relative;
+		width: vw(345);
+		height: vw(280);
+		background: linear-gradient(#fffdf0, #fcec95);
+		border-radius: 8px;
+		overflow: hidden;
+		margin: vw(30) auto 0;
+		.gacha_body {
+			position: absolute;
+			top: vw(21);
+			left: vw(32.5);
+			width: vw(280);
+			height: vw(365);
+			.body {
+				width: 100%;
+			}
+			.front {
+				position: absolute;
+				top: vw(143);
+				left: vw(76);
+				width: vw(129);
+			}
+			.handle {
+				position: absolute;
+				top: vw(151);
+				left: vw(89);
+				width: vw(100);
+				&.rotate {
+					animation: 2.5s ease-in-out .8s rotate;
+					@keyframes rotate {
+						0% {
+							transform: rotate(0deg);
+						}
+						40%,60% {
+							transform: rotate(180deg);
+						}
+						100% {
+							transform: rotate(360deg);
+						}
+					}
+				}
+			}
+			.hide_capsule_wrap {
+				position: absolute;
+				top: vw(143);
+				left: vw(75);
+				width: vw(130);
+				height: vw(114);
+				box-sizing: border-box;
+				.effect {
+					position: absolute;
+					top: vw(76);
+					left: -#{vw(7.5)};
+					width: vw(145);
+					opacity: 0;
+					&.flash {
+						animation: 1.3s linear 1.36s forwards flash;
+						@keyframes flash {
+							0% {
+								transform: scale(0.4);
+								opacity: 0.4;
+							}
+							35% {
+								transform: scale(1.4) ;
+								opacity: 1;
+								z-index: 1;
+							}
+							55% {
+								opacity: 1.4;
+								z-index: 1;
+							}
+							100% {
+								opacity: 0;
+							}		
+						}
+					}
+				}
+				.capsule {
+					position: absolute;
+					left: vw(22);
+					bottom: 0;
+					width: vw(85);
+					height: vw(85);
+					&.drop {
+						animation: 2s ease-in-out .3s forwards drop;
+						@keyframes drop {
+							0% {
+								transform: translateY(0);
+							}
+							10%{
+								transform: translateY(vw(100));
+							}
+							20% {
+								transform: translateY(vw(85));
+							}
+							30% {
+								transform: translateY(vw(100));
+							}
+							40% {
+								transform: translateY(vw(95));
+							}
+							50% {
+								transform: translateY(vw(100));
+							}
+							80%,to {
+								transform: translateY(vw(100)) rotate(-15deg);
+								z-index: 2;
+							}
+						}
+					}
+				}
+			}
+			&.slideup {
+				animation: 2s ease-out .5s forwards slideup;
+				@keyframes slideup {
+					0% {
+						transform: translateY(0);
+					}
+					100% {
+						transform: translateY(-#{vw(125)});
+					}
+				}
+			}
+		}
+		.result_jackpot {
+			position: absolute;
+			top: vw(12.5);
+			left: vw(17.5);
+			width: vw(306);
+			height: vw(251);
+			border-radius: 8px;
+			border: 2px solid #000;
+			background-color: #fff;
+			transform-origin: center vw(200);
+			transition: .3s;
+			opacity: 0;
+			transform: scale(.3);
+			visibility: hidden;
+			&.open {
+				visibility: visible;
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+	}
+}
+
+/*
 #gacha-app {
 	position: relative;
-	width: 100%;
-	height: vw(282);
-	background: url(../img/gacha-wrap-bg.png) no-repeat center;
+	width: vw(345);
+	height: vw(280);
+	background: linear-gradient(#fffdf0, #fcec95);
 	border-radius: 8px;
 	overflow: hidden;
+	margin: vw(30) auto 0;
 	.start_overlay {
 		position: absolute;
 		top: 0;
@@ -166,3 +316,4 @@ a {
 		}
 	}
 }
+*/

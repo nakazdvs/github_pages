@@ -17,7 +17,7 @@
 
 <div id="vueGachaApp" class="gacha_app">
 	<gacha-body :obj="gachaObj"></gacha-body>
-	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="change"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
+	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="start"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
 	<div class="ticket_wrap">
 		<dl class="ticket">
 			<dt>保有チケット</dt>
@@ -55,22 +55,19 @@ const gachaBody = Vue.extend({
 				<img src="./img/gacha_body.png" class="body">
 				<div class="hide_capsule_wrap">
 					<img src="./img/gacha_effect.png" class="effect" :class="flash" ref="effect">
-					<img src="./img/gacha_capsule_g.png" class="capsule" :class="drop">
+					<img :src="capsule_img" class="capsule" :class="drop">
 				</div>
 				<img src="./img/gacha_front.png" class="front">
 				<img src="./img/gacha_handle.png" class="handle" :class="rotate" ref="handle">
 			</div>
-			<component :is="result" :obj="resultObj"></component>
+			<div class="result_wrap" :class="[result,open]"><p v-html="obj.present"></p></div>
 		</div>
 	`,
 	data() {
 		return {
 			isRotated: false,
 			isTranslated: false,
-			result: 'jackpot',
-			resultObj: {
-				isResult: false
-			}
+			showResult: false,
 		}
 	},
 	props: {
@@ -78,24 +75,18 @@ const gachaBody = Vue.extend({
 			type: Object
 		}
 	},
-	components: {
-		'jackpot': {
-			template: `<div class="result_jackpot" :class="open"></div>`,
-			props: {
-				obj: {
-					type: Object
-				},
-			},
-			computed: {
-				open() {
-					return {
-						open: this.obj.isResult
-					}
-				}
+	computed: {
+		capsule_img() {
+			return `./img/gacha_capsule_${this.obj.result}.png`
+		},
+		result() {
+			return `result_${this.obj.result}`
+		},
+		open() {
+			return {
+				open: this.showResult
 			}
 		},
-	},
-	computed: {
 		rotate() {
 			return {
 				rotate: this.obj.isStart
@@ -139,17 +130,28 @@ const gachaBody = Vue.extend({
 		gachad() {
 			const effect = this.$refs.effect
 			effect.addEventListener('animationend',() => {
-				this.$set(this.resultObj,"isResult",true)
+				this.showResult = true
 			})
 		}
 	}
 })
-
+/*
+const resultApi = {
+	result: "jackpot",
+	present: "初回メッセージ<br>1時間送り放題"
+}
+*/
+const resultApi = {
+	result: "hit",
+	present: "メール無料券<br>5枚"
+}
 new Vue({
 	el: "#vueGachaApp",
 	data: {
 		gachaObj: {
-			isStart: false
+			isStart: false,
+			result: '',
+			present: ''
 		},
 		ticket: 9
 	},
@@ -157,8 +159,15 @@ new Vue({
 		gachaBody
 	},
 	methods: {
-		change() {
-			this.$set(this.gachaObj,"isStart",true)
+		start() {
+			const api = resultApi
+			this.$set(this.$data,"gachaObj",
+				{
+					result: api.result,
+					present: api.present,
+					isStart: true
+				}
+			)
 		}
 	}
 })

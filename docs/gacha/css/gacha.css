@@ -392,15 +392,21 @@
   }
 }
 
-.gacha_app .gacha_frame .result_jackpot {
+.gacha_app .gacha_frame .result_wrap {
   position: absolute;
   top: 3.3vw;
   left: 4.7vw;
   width: 81.6vw;
   height: 66.9vw;
-  border-radius: 8px;
-  border: 2px solid #000;
-  background-color: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
   -webkit-transform-origin: center 53.3vw;
           transform-origin: center 53.3vw;
   -webkit-transition: .3s;
@@ -411,11 +417,32 @@
   visibility: hidden;
 }
 
-.gacha_app .gacha_frame .result_jackpot.open {
+.gacha_app .gacha_frame .result_wrap > p {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 28vw;
+  font-size: 6.4vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.gacha_app .gacha_frame .result_wrap.open {
   visibility: visible;
   opacity: 1;
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.gacha_app .gacha_frame .result_wrap.result_jackpot {
+  background: url(../img/bg_jackpot.png) no-repeat center top/contain;
+}
+
+.gacha_app .gacha_frame .result_wrap.result_hit {
+  background: url(../img/bg_hit.png) no-repeat center top/contain;
 }
 
 .gacha_app .btn_wrap {

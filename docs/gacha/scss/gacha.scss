@@ -238,24 +238,40 @@ background-color: #73cfff;
 				}
 			}
 		}
-		.result_jackpot {
+		.result_wrap {
 			position: absolute;
 			top: vw(12.5);
 			left: vw(17.5);
 			width: vw(306);
 			height: vw(251);
-			border-radius: 8px;
-			border: 2px solid #000;
-			background-color: #fff;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-end;
 			transform-origin: center vw(200);
 			transition: .3s;
 			opacity: 0;
 			transform: scale(.3);
 			visibility: hidden;
+			> p {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: vw(105);
+				font-size: vw(24);
+				font-weight: bold;
+				text-align: center;
+			}
 			&.open {
 				visibility: visible;
 				opacity: 1;
 				transform: scale(1);
+			}
+			&.result_jackpot {
+				background: url(../img/bg_jackpot.png) no-repeat center top / contain;
+			}
+			&.result_hit {
+				background: url(../img/bg_hit.png) no-repeat center top / contain;
 			}
 		}
 	}

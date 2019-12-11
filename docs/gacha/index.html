@@ -5,20 +5,45 @@
 <title>無題ドキュメント</title>
 <meta name="viewport" content="width=devise-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 <link rel="stylesheet" href="./css/gacha.css">
+<link rel="stylesheet" href="https://dev102.yyc.co.jp/css/main.css">
 </head>
 <body>
 
-<div id="vueGachaApp" class="gacha_app">
-	<gacha-body :obj="gachaObj"></gacha-body>
-	<a href="#" @click.prevent="change">スタート</a>
+<div id="container" class="gacha">
+
+<div class="gacha_header">
+	<img src="./img/header.png" width="100%" alt="ハズレなし!!YYCガチャ">
 </div>
 
-<!--div id="gacha-app">
-<transition mode="out-in">
-	<start-overlay @gacha="start" v-if="stop"></start-overlay>
-</transition>
-<gacha-body ref="body"></gacha-body>
-</div-->
+<div id="vueGachaApp" class="gacha_app">
+	<gacha-body :obj="gachaObj"></gacha-body>
+	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="change"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
+	<div class="ticket_wrap">
+		<dl class="ticket">
+			<dt>保有チケット</dt>
+			<dd>{{ticket}}<small>枚</small></dd>
+		</dl>
+	</div>
+</div>
+
+<div id="vueGachaReturnTop" class="gacha_return_top">
+	<span class="btn" :class="appear"></span>
+</div>
+
+<div class="gacha_present_wrap">
+	<div class="label"><img src="./img/img_chance.png" width="100%" alt="1000円で一回 ガチャガチャチャンス！"></div>
+	<ul class="present_wrap">
+		<li class="open_message"><div class="wrap"><strong>初回メッセージ<br>1時間送り放題</strong></div></li>
+		<li class="premium_option"><div class="wrap"><strong>プレミアムオプション<br>30日分無料</strong><br>
+		<small>(すでにご利用中の方は1,000ptに代替)</small></div></li>
+		<li class="point"><div class="wrap"><strong>YYCポイント1,000pt</strong></div></li>
+		<li class="message_ticket"><div class="wrap"><strong>メール送信無料券</strong></div></li>
+		<li class="profile_ticket"><div class="wrap"><strong>プロフ閲覧無料券</strong></div></li>
+	</ul>
+	<div class="footer"><img src="./img/img_footer.png" width="100%" alt="期間中は何度もガチャを楽しもう！"></div>
+</div>
+
+</div><!--/container-->
 
 <script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
 <script>
@@ -125,7 +150,8 @@ new Vue({
 	data: {
 		gachaObj: {
 			isStart: false
-		}
+		},
+		ticket: 9
 	},
 	components: {
 		gachaBody
@@ -136,75 +162,43 @@ new Vue({
 		}
 	}
 })
-/*
-const startOverlay = Vue.extend({
-	template: `
-		<div class="start_overlay">
-			<img src="./img/about.png" class="about">
-			<a href="#" class="btn" @click.prevent="gacha"><img src="./img/btn-gacha.png"></a>
-		</div>
-	`,
-	methods: {
-		gacha() {
-			this.$emit('gacha')
-		}
-	}
-})
-const gachaBody = Vue.extend({
-	data() {
-		return {
-			isRotate: false,
-			isZoom: false,
-			isDrop: false,
-			isFlash: false
-		}
-	},
-	template: `
-		<div class="gacha-body">
-			<div class="wrap":class="{zoom:isZoom}" ref="wrap">
-				<img src="./img/gacha-body.png" class="body">
-				<div class="egg_wrap" :class="{drop:isDrop}">
-					<img src="./img/gacha-egg-effect.png" class="effect" :class="{flash:isFlash}">
-					<img src="./img/gacha-egg-g.png" class="egg">
-				</div>
-				<img src="./img/gacha-front.png" class="front">
-				<img src="./img/gacha-handle.png" class="handle" :class="{rotate:isRotate}" ref="handle">
-			</div>
-		</div>
-	`,
-	methods: {
-		rotate() {
-			this.isRotate = true
-			const handle = this.$refs.handle
-			handle.addEventListener('animationend',(e) => {
-				this.isZoom = true
-				e.stopPropagation()
-			})
-			const wrap = this.$refs.wrap
-			wrap.addEventListener('animationend',() => {
-				this.isDrop = true
-				this.isFlash = true
-			})
-		}
-	}
-})
 new Vue({
-	el: "#gacha-app",
+	el: "#vueGachaReturnTop",
 	data: {
-		stop: true
+		isAppear: false
 	},
-	components: {
-		startOverlay,
-		gachaBody
+	computed: {
+		appear() {
+			return {
+				appear: this.isAppear
+			}
+		}
+	},
+	mounted() {
+		this.btnObserve()
 	},
 	methods: {
-		start() {
-			this.stop = false
-			this.$refs.body.rotate()
+		btnObserve() {
+			const btn = document.querySelector('.observeTarget')
+			const options = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0
+			}
+			const observer = new IntersectionObserver(this.observeCallback, options)
+			observer.observe(btn)
+		},
+		observeCallback(entries) {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) {
+					this.isAppear = true
+				} else {
+					this.isAppear = false
+				}
+			})
 		}
 	}
-});
-*/
+})
 </script>
 </body>
 </html>

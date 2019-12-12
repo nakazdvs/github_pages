@@ -189,11 +189,11 @@
     -webkit-transform: rotate(5deg);
             transform: rotate(5deg);
   }
-  35%, 69% {
+  35%, 70% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  70% {
+  71% {
     -webkit-transform: rotate(-5deg);
             transform: rotate(-5deg);
   }
@@ -228,11 +228,11 @@
     -webkit-transform: rotate(5deg);
             transform: rotate(5deg);
   }
-  35%, 69% {
+  35%, 70% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  70% {
+  71% {
     -webkit-transform: rotate(-5deg);
             transform: rotate(-5deg);
   }

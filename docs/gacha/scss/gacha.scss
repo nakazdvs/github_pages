@@ -126,6 +126,39 @@ background-color: #73cfff;
 			height: vw(365);
 			.body {
 				width: 100%;
+				transform-origin: center bottom;
+				&.shake {
+					animation: 2.5s linear shake;
+					@keyframes shake {
+						0%,19% {
+							transform: rotate(0deg);
+						}
+						20% {
+							transform: rotate(5deg);
+						}
+						25% {
+							transform: rotate(0deg);
+						}
+						30% {
+							transform: rotate(5deg);
+						}
+						35%,69% {
+							transform: rotate(0deg);
+						}
+						70% {
+							transform: rotate(-5deg);
+						}
+						75% {
+							transform: rotate(0deg);
+						}
+						80% {
+							transform: rotate(-5deg);
+						}
+						85%,100%{
+							transform: rotate(0deg);
+						}
+					}
+				}
 			}
 			.front {
 				position: absolute;
@@ -139,7 +172,7 @@ background-color: #73cfff;
 				left: vw(89);
 				width: vw(100);
 				&.rotate {
-					animation: 2.5s ease-in-out .8s rotate;
+					animation: 2.5s ease-in-out rotate;
 					@keyframes rotate {
 						0% {
 							transform: rotate(0deg);

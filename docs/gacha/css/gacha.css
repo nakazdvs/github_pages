@@ -163,6 +163,91 @@
 
 .gacha_app .gacha_frame .gacha_body .body {
   width: 100%;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+.gacha_app .gacha_frame .gacha_body .body.shake {
+  -webkit-animation: 2.5s linear shake;
+          animation: 2.5s linear shake;
+}
+
+@-webkit-keyframes shake {
+  0%, 19% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  25% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  30% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  35%, 69% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  85%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes shake {
+  0%, 19% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  25% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  30% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  35%, 69% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  75% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  80% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  85%, 100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
 }
 
 .gacha_app .gacha_frame .gacha_body .front {
@@ -180,8 +265,8 @@
 }
 
 .gacha_app .gacha_frame .gacha_body .handle.rotate {
-  -webkit-animation: 2.5s ease-in-out .8s rotate;
-          animation: 2.5s ease-in-out .8s rotate;
+  -webkit-animation: 2.5s ease-in-out rotate;
+          animation: 2.5s ease-in-out rotate;
 }
 
 @-webkit-keyframes rotate {

@@ -16,11 +16,13 @@
 </div>
 
 <div id="vueGachaApp" class="gacha_app">
-	<div class="gacha_frame">
-		<div class="gacha_body"><img src="./img/gacha_main.png" width="100%"></div>
-		<div class="shortage_wrap"></div>
+	<gacha-body :obj="gachaObj" @again="repeat"></gacha-body>
+	<div class="btn_wrap observeTarget">
+		<a href="#" @click.prevent="gacha" :class="disabled">
+			<img src="./img/btn_gacha_re.png" alt="もう一度やる" width="100%" v-if="isAgain">
+			<img src="./img/btn_gacha.png" class="disabled" alt="ガチャを回す" width="100%" v-else>
+		</a>
 	</div>
-	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="shortage"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
 	<div class="ticket_wrap">
 		<dl class="ticket">
 			<dt>保有チケット</dt>
@@ -51,55 +53,29 @@
 <script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
 <script>
 'use strict'
-
-new Vue({
-	el: "#vueGachaApp",
-	data: {
-		isShortage: false,
-		ticket: 9
-	},
-	/*
-	components: {
-		gachaBody
-	},
-	*/
-	mounted() {
-		this.$nextTick(function(){
-			//this.start()
-		})
-	},
-	methods: {
-		start() {
-			const api = resultApi
-			this.$set(this.$data,"gachaObj",
-				{
-					result: api.result,
-					present: api.present,
-					isStart: true
-				}
-			)
-		},
-		shortage() {
-			console.log('shortage')
-		}
-	}
-})
-
-/*
 const gachaBody = Vue.extend({
 	template: `
 		<div class="gacha_frame">
-			<div class="gacha_body" :class="upperSlide" ref="wrap">
-				<img src="./img/gacha_body.png" class="body" :class="shake" @animationend.stop>
-				<div class="hide_capsule_wrap">
-					<img src="./img/gacha_effect.png" class="effect" :class="flash" ref="effect">
-					<img :src="capsule_img" class="capsule" :class="drop">
+			<div class="gacha_inner_frame">
+				<div class="gacha_body" :class="upperSlide" ref="wrap">
+					<img src="./img/gacha_body.png" class="body" :class="shake" @animationend.stop>
+					<div class="hide_capsule_wrap">
+						<img src="./img/gacha_effect.png" class="effect" :class="flash" ref="effect">
+						<img :src="capsule_img" class="capsule" :class="drop">
+					</div>
+					<img src="./img/gacha_front.png" class="front">
+					<img src="./img/gacha_handle.png" class="handle" :class="rotate" ref="handle">
 				</div>
-				<img src="./img/gacha_front.png" class="front">
-				<img src="./img/gacha_handle.png" class="handle" :class="rotate" ref="handle">
+				<div class="result_wrap" :class="[result,open]"><p v-html="obj.present"></p></div>
 			</div>
-			<div class="result_wrap" :class="[result,open]"><p v-html="obj.present"></p></div>
-			<div class="shortage_wrap"></div>
+			<div class="shortage_wrap" v-if="obj.shortage">
+				<dl class="body">
+					<dt class="label">チケットがありません&#x1f4a6;</dt>
+					<dd class="p">1,000円のポイント購入で<br>
+					チケットが1枚付与されます。</dd>
+					<dd class="btn"><a href="/buy/"><img src="./img/btn_buy.png" width="100%" alt="ポイントを購入する"></a></dd>
+				</dl>
+			</div>
 		</div>
 	`,
 	data() {
@@ -175,50 +151,64 @@ const gachaBody = Vue.extend({
 			const effect = this.$refs.effect
 			effect.addEventListener('animationend',() => {
 				this.showResult = true
+				this.$emit('again')
 			})
-		}
+		},
 	}
 })
-const resultApi = {
-	result: "hit",
-	present: "初回メッセージ<br>1時間送り放題"
-}
 new Vue({
 	el: "#vueGachaApp",
 	data: {
 		gachaObj: {
+			shortage: false,
 			isStart: false,
-			result: '',
-			present: ''
+			result: 'jackpot',
+			present: '初回メッセージ<br>1時間送り放題'
 		},
-		ticket: 9
+		ticket: 9,
+		again: false,
 	},
 	components: {
 		gachaBody
 	},
+	computed: {
+		isAgain() {
+			return this.again
+		},
+		disabled() {
+			return {
+				disabled: !this.again
+			}
+		}
+	},
 	mounted() {
 		this.$nextTick(function(){
-			//this.start()
+			this.start()
 		})
 	},
 	methods: {
+		repeat() {
+			this.again = true
+		},
 		start() {
+			this.$set(this.gachaObj,"isStart",true)
+			/*
 			const api = resultApi
 			this.$set(this.$data,"gachaObj",
 				{
+					shortage: true,
 					result: api.result,
 					present: api.present,
 					isStart: true
 				}
 			)
+			*/
 		},
-		shortage() {
-			console.log('shortage')
+		gacha() {
+			location.reload()
 		}
 	}
 })
-*/
-
 new Vue({
 	el: "#vueGachaReturnTop",
 	data: {

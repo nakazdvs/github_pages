@@ -114,10 +114,15 @@ background-color: #73cfff;
 		position: relative;
 		width: vw(345);
 		height: vw(280);
-		background: linear-gradient(#fffdf0, #fcec95);
-		border-radius: 8px;
-		overflow: hidden;
 		margin: vw(4) auto vw(22);
+		.gacha_inner_frame {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(#fffdf0, #fcec95);
+			border-radius: 8px;
+			overflow: hidden;
+		}
 		.gacha_body {
 			position: absolute;
 			top: vw(21);
@@ -307,9 +312,47 @@ background-color: #73cfff;
 				background: url(../img/bg_hit.png) no-repeat center top / contain;
 			}
 		}
+		.shortage_wrap {
+			position: absolute;
+			top: -#{vw(36)};
+			left: vw(15);
+			display: flex;
+			align-items: center;
+			justify-content: stretch;
+			width: vw(307);
+			height: vw(363);
+			padding: 0 vw(19);
+			background-color: #fff;
+			border: 2px solid #ff5d00;
+			border-radius: 11px;
+			box-sizing: border-box;
+			transition: .3s;
+			opacity: 0;
+			transform: scale(.3);
+			visibility: hidden;
+			.body {
+				font-size: vw(16);
+				text-align: center;
+				.label {
+					font-size: vw(20);
+					font-weight: bold;
+					padding-top: vw(90);
+					background: url(../img/icon_shortage.png) no-repeat center top / vw(54);
+				}
+				.p {
+					padding: vw(20) 0 vw(32);
+				}
+			}
+		}
 	}
 	.btn_wrap {
 		padding: 0 vw(50);
+		.disabled {
+			pointer-events: none;
+			img {
+				filter: opacity(.3);
+			}
+		}
 	}
 	.ticket_wrap {
 		padding-top: vw(11);

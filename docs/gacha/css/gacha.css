@@ -146,11 +146,17 @@
   position: relative;
   width: 92vw;
   height: 74.7vw;
+  margin: 1.1vw auto 5.9vw;
+}
+
+.gacha_app .gacha_frame .gacha_inner_frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
   background: -webkit-linear-gradient(#fffdf0, #fcec95);
   background: linear-gradient(#fffdf0, #fcec95);
   border-radius: 8px;
   overflow: hidden;
-  margin: 1.1vw auto 5.9vw;
 }
 
 .gacha_app .gacha_frame .gacha_body {
@@ -530,8 +536,58 @@
   background: url(../img/bg_hit.png) no-repeat center top/contain;
 }
 
+.gacha_app .gacha_frame .shortage_wrap {
+  position: absolute;
+  top: -9.6vw;
+  left: 4vw;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: stretch;
+          justify-content: stretch;
+  width: 81.9vw;
+  height: 96.8vw;
+  padding: 0 5.1vw;
+  background-color: #fff;
+  border: 2px solid #ff5d00;
+  border-radius: 11px;
+  box-sizing: border-box;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  visibility: hidden;
+}
+
+.gacha_app .gacha_frame .shortage_wrap .body {
+  font-size: 4.3vw;
+  text-align: center;
+}
+
+.gacha_app .gacha_frame .shortage_wrap .body .label {
+  font-size: 5.3vw;
+  font-weight: bold;
+  padding-top: 24vw;
+  background: url(../img/icon_shortage.png) no-repeat center top/14.4vw;
+}
+
+.gacha_app .gacha_frame .shortage_wrap .body .p {
+  padding: 5.3vw 0 8.5vw;
+}
+
 .gacha_app .btn_wrap {
   padding: 0 13.3vw;
+}
+
+.gacha_app .btn_wrap .disabled {
+  pointer-events: none;
+}
+
+.gacha_app .btn_wrap .disabled img {
+  -webkit-filter: opacity(0.3);
+          filter: opacity(0.3);
 }
 
 .gacha_app .ticket_wrap {

@@ -539,7 +539,7 @@
 .gacha_app .gacha_frame .shortage_wrap {
   position: absolute;
   top: -9.6vw;
-  left: 4vw;
+  left: 5.1vw;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -559,6 +559,13 @@
   -webkit-transform: scale(0.3);
           transform: scale(0.3);
   visibility: hidden;
+}
+
+.gacha_app .gacha_frame .shortage_wrap.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .gacha_app .gacha_frame .shortage_wrap .body {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "scss:css": "node-sass --output-style expanded ./scss -o ./css",
-    "prefix": "postcss -u autoprefixer --no-map ./css -r ./css",
+    "prefix": "postcss -u autoprefixer --no-map ./css/gacha.css -r ./css/gacha.css",
     "build": "yarn run scss:css && yarn run prefix"
   },
   "author": "",

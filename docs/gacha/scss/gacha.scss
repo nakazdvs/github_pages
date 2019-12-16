@@ -315,7 +315,7 @@ background-color: #73cfff;
 		.shortage_wrap {
 			position: absolute;
 			top: -#{vw(36)};
-			left: vw(15);
+			left: vw(19);
 			display: flex;
 			align-items: center;
 			justify-content: stretch;
@@ -330,6 +330,11 @@ background-color: #73cfff;
 			opacity: 0;
 			transform: scale(.3);
 			visibility: hidden;
+			&.open {
+				visibility: visible;
+				opacity: 1;
+				transform: scale(1);
+			}
 			.body {
 				font-size: vw(16);
 				text-align: center;

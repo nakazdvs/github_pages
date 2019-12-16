@@ -68,7 +68,7 @@ const gachaBody = Vue.extend({
 				</div>
 				<div class="result_wrap" :class="[result,open]"><p v-html="obj.present"></p></div>
 			</div>
-			<div class="shortage_wrap" v-if="obj.shortage">
+			<div class="shortage_wrap" :class="shortage">
 				<dl class="body">
 					<dt class="label">チケットがありません&#x1f4a6;</dt>
 					<dd class="p">1,000円のポイント購入で<br>
@@ -100,6 +100,11 @@ const gachaBody = Vue.extend({
 		open() {
 			return {
 				open: this.showResult
+			}
+		},
+		shortage() {
+			return {
+				open: this.obj.shortage
 			}
 		},
 		shake() {
@@ -165,7 +170,7 @@ new Vue({
 			result: 'jackpot',
 			present: '初回メッセージ<br>1時間送り放題'
 		},
-		ticket: 9,
+		ticket: 0,
 		again: false,
 	},
 	components: {
@@ -192,20 +197,15 @@ new Vue({
 		},
 		start() {
 			this.$set(this.gachaObj,"isStart",true)
-			/*
-			const api = resultApi
-			this.$set(this.$data,"gachaObj",
-				{
-					shortage: true,
-					result: api.result,
-					present: api.present,
-					isStart: true
-				}
-			)
-			*/
 		},
 		gacha() {
-			location.reload()
+			const hasTicket = (this.ticket === 0 ? false : true)
+			if (hasTicket ) {
+				location.reload()
+			} else {
+				this.$set(this.gachaObj,"shortage",true)
+			}
+			
 		}
 	}
 })

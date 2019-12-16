@@ -17,10 +17,19 @@
 
 <div id="vueGachaApp" class="gacha_app">
 	<div class="gacha_frame">
-		<div class="gacha_body"><img src="./img/gacha_main.png" width="100%"></div>
-		<div class="shortage_wrap"></div>
+		<div class="gacha_inner_frame">
+			<img src="./img/gacha_main.png" width="100%">
+		</div>
+		<div class="shortage_wrap" :class="shortage">
+			<dl class="body">
+				<dt class="label">チケットがありません&#x1f4a6;</dt>
+				<dd class="p">1,000円のポイント購入で<br>
+				チケットが1枚付与されます。</dd>
+				<dd class="btn"><a href="/buy/"><img src="./img/btn_buy.png" width="100%" alt="ポイントを購入する"></a></dd>
+			</dl>
+		</div>
 	</div>
-	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="shortage"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
+	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="start"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
 	<div class="ticket_wrap">
 		<dl class="ticket">
 			<dt>保有チケット</dt>
@@ -56,168 +65,26 @@ new Vue({
 	el: "#vueGachaApp",
 	data: {
 		isShortage: false,
-		ticket: 9
-	},
-	/*
-	components: {
-		gachaBody
-	},
-	*/
-	mounted() {
-		this.$nextTick(function(){
-			//this.start()
-		})
-	},
-	methods: {
-		start() {
-			const api = resultApi
-			this.$set(this.$data,"gachaObj",
-				{
-					result: api.result,
-					present: api.present,
-					isStart: true
-				}
-			)
-		},
-		shortage() {
-			console.log('shortage')
-		}
-	}
-})
-
-/*
-const gachaBody = Vue.extend({
-	template: `
-		<div class="gacha_frame">
-			<div class="gacha_body" :class="upperSlide" ref="wrap">
-				<img src="./img/gacha_body.png" class="body" :class="shake" @animationend.stop>
-				<div class="hide_capsule_wrap">
-					<img src="./img/gacha_effect.png" class="effect" :class="flash" ref="effect">
-					<img :src="capsule_img" class="capsule" :class="drop">
-				</div>
-				<img src="./img/gacha_front.png" class="front">
-				<img src="./img/gacha_handle.png" class="handle" :class="rotate" ref="handle">
-			</div>
-			<div class="result_wrap" :class="[result,open]"><p v-html="obj.present"></p></div>
-			<div class="shortage_wrap"></div>
-		</div>
-	`,
-	data() {
-		return {
-			isRotated: false,
-			isTranslated: false,
-			showResult: false,
-		}
-	},
-	props: {
-		obj: {
-			type: Object
-		}
+		ticket: 0
 	},
 	computed: {
-		capsule_img() {
-			return `./img/gacha_capsule_${this.obj.result}.png`
-		},
-		result() {
-			return `result_${this.obj.result}`
-		},
-		open() {
+		shortage () {
 			return {
-				open: this.showResult
-			}
-		},
-		shake() {
-			return {
-				shake: this.obj.isStart
-			}
-		},
-		rotate() {
-			return {
-				rotate: this.obj.isStart
-			}
-		},
-		upperSlide() {
-			return {
-				slideup: this.isRotated
-			}
-		},
-		drop() {
-			return {
-				drop: this.isTranslated
-			}
-		},
-		flash() {
-			return {
-				flash: this.isTranslated
+				open: this.isShortage
 			}
 		}
-	},
-	mounted(){
-		this.rotated()
-		this.translated()
-		this.gachad()
-	},
-	methods: {
-		rotated() {
-			const handle = this.$refs.handle
-			handle.addEventListener('animationend',(e) => {
-				this.isRotated = true
-				e.stopPropagation()
-			})
-		},
-		translated() {
-			const wrap = this.$refs.wrap
-			wrap.addEventListener('animationend',() => {
-				this.isTranslated = true
-			})
-		},
-		gachad() {
-			const effect = this.$refs.effect
-			effect.addEventListener('animationend',() => {
-				this.showResult = true
-			})
-		}
-	}
-})
-const resultApi = {
-	result: "hit",
-	present: "初回メッセージ<br>1時間送り放題"
-}
-new Vue({
-	el: "#vueGachaApp",
-	data: {
-		gachaObj: {
-			isStart: false,
-			result: '',
-			present: ''
-		},
-		ticket: 9
-	},
-	components: {
-		gachaBody
-	},
-	mounted() {
-		this.$nextTick(function(){
-			//this.start()
-		})
 	},
 	methods: {
 		start() {
-			const api = resultApi
-			this.$set(this.$data,"gachaObj",
-				{
-					result: api.result,
-					present: api.present,
-					isStart: true
-				}
-			)
-		},
-		shortage() {
-			console.log('shortage')
+			const hasTicket = (this.ticket === 0 ? false : true)
+			if (hasTicket ) {
+				location.href = './result.html'
+			} else {
+				this.isShortage = true
+			}
 		}
 	}
 })
-*/
 
 new Vue({
 	el: "#vueGachaReturnTop",

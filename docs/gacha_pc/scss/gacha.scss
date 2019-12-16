@@ -1,0 +1,195 @@
+#gacha #cpContainer {
+	font-family: 'HiraKakuProN-W3';
+	background-color: #73cfff;
+}
+#wrapper.gacha {
+	.gacha_header {
+		background: url(../img/bg_header.png) repeat-x center top / auto 188px;
+	}
+	.gacha_container {
+		width: 900px;
+		margin: 0 auto;
+	}
+	.gacha_app {
+		.gacha_frame {
+			position: relative;
+			width: 700px;
+			margin: 0 auto;
+			.animation {
+				border-radius: 10px;
+			}
+			.result_wrap {
+				position: absolute;
+				top: 13px;
+				left: 195px;
+				width: 311px;
+				height: 256px;
+				display: flex;
+				flex-direction: column;
+				align-items: stretch;
+				justify-content: flex-end;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 311px 256px;
+				transform-origin: center 235px;
+				transition: .3s;
+				opacity: 0;
+				transform: scale(.3);
+				visibility: hidden;
+				&.open {
+					visibility: visible;
+					opacity: 1;
+					transform: scale(1);
+				}
+				> p {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 105px;
+					font-size: 24px;
+					line-height: 1.2;
+					font-weight: bold;
+					text-align: center;
+				}
+				&.jackpot {
+					background-image: url(../img/bg_jackpot.png)
+				}
+			}
+			.shortage_overlay {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 99;
+				background-color: rgba(#000, .3);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: .3s;
+				opacity: 0;
+				transform: scale(.3);
+				visibility: hidden;
+				&.open {
+					visibility: visible;
+					opacity: 1;
+					transform: scale(1);
+				}
+				.shortage_wrap {
+					position: absolute;
+					top: 188px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 619px;
+					height: 363px;
+					border: 2px solid #ff5d00;
+					border-radius: 10px;
+					background-color: #fff;
+					.body {
+						font-size: 16px;
+						text-align: center;
+						.label {
+							font-size: 20px;
+							font-weight: bold;
+							padding-top: 90px;
+							background: url(../img/icon_shortage.png) no-repeat center top / 54px;
+						}
+						.p {
+							padding: 20px 0 32px;
+						}
+					}
+				}
+			}
+		}
+		.btn_wrap {
+			margin: 20px 0 16px;
+			> input[disabled] {
+				filter: opacity(.3);
+			}
+		}
+		.ticket_wrap {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 270px;
+			height: 54px;
+			background: url(../img/bg_ticket.png) no-repeat center / 270px 54px;
+			margin: 0 auto;
+			font-weight: bold;
+			> dt {
+				font-size: 13px;
+				margin-right: 1em;
+			}
+			> dd {
+				font-size: 14px;
+				small {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+	.gacha_present_wrap {
+		.present_wrap {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-content: space-between;
+			width: 840px;
+			height: 275px;
+			margin: 22px auto 50px;
+			.open_message,
+			.premium_option,
+			.point {
+				width: 273px;
+				height: 175px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 273px 175px;
+				box-sizing: border-box;
+				font-size: 20px;
+				line-height: 1.3;
+			}
+			.open_message {
+				padding-top: 84px;
+				background-image: url(../img/frame_present_open_message.png);
+			}
+			.premium_option {
+				padding-top: 84px;
+				background-image: url(../img/frame_present_premium_option.png);
+				> small {
+					display: inline-block;
+					color: #666;
+					font-size: 10px;
+					transform: translateY(-10px);
+				}
+			}
+			.point {
+				padding-top: 110px;
+				background-image: url(../img/frame_present_point.png);
+			}
+			.message_ticket,
+			.profile_ticket {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				width: 410px;
+				height: 80px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 410px 80px;
+				box-sizing: border-box;
+				padding-left: 140px;
+				font-size: 16px;
+			}
+			.message_ticket {
+				background-image: url(../img/frame_present_message_ticket.png);
+			}
+			.profile_ticket {
+				background-image: url(../img/frame_present_profile_ticket.png);
+			}
+		}
+	}
+	.gacha_footer {
+		background: url(../img/bg_footer.png) repeat-x center bottom / auto 260px;
+	}
+}

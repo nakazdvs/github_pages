@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>メールくじキャンペーン</title>
+
+<link rel="stylesheet" href="./css/common.css" type="text/css">
+<link rel="stylesheet" href="./css/cms.css" type="text/css">
+<link rel="stylesheet" href="./css/gacha.css" type="text/css">
+</head>
+<body id="gacha">
+
+<div id="cpHeader">
+<div id="headerBox">
+<div class="inner">
+<div class="yycLogo"><a href="https://www.yyc.co.jp/"><img src="/img/common/logo/yyc_cp.png" width="105" height="30" alt="YYC from "></a></div>
+<ul>
+<li class="top"><a href="https://www.yyc.co.jp/"><img src="/img/campaign/top_off.gif" border="0" onmouseover="this.src='/img/campaign/top_on.gif'" onmouseout="this.src='/img/campaign/top_off.gif'" alt="トップ"></a></li><li class="mypage"><a href="https://www.yyc.co.jp/my/"><span>マイページ</span></a></li><li class="s-profile"><a href="https://www.yyc.co.jp/profile/search/simple"><span>プロフィール検索</span></a></li>
+<li class="s-bbs"><a href="https://www.yyc.co.jp/bbs/"><span>募集</span></a></li><li class="diary"><a href="https://www.yyc.co.jp/diary/"><span>日記</span></a></li>
+<li class="config"><a href="https://www.yyc.co.jp/my/config/"><span>設定</span></a></li>
+<li class="youbride"><a href="http://youbride.jp/r/yycmpc/" target="_blank"><span>結婚</span></a></li><li class="logout"><a href="https://www.yyc.co.jp/logout/"><span>ログアウト</span></a>
+
+
+</li></ul>
+</div>
+</div>
+</div>
+
+<div id="bgimages">
+<div id="cpContainer" class="male">
+<div id="wrapper" class="gacha">
+
+<div class="gacha_header">
+	<img src="./img/header.png" width="900" alt="ハズレなし!!YYCガチャ">
+</div>
+
+<div class="gacha_container">
+
+<div class="gacha_app">
+	<div class="gacha_frame">
+		<img src="./img/gacha_animation_jackpot.gif" class="animation" width="700">
+		<div class="result_wrap jackpot"><p>初回メッセージ<br>1時間送り放題</p></div>
+		<div class="shortage_overlay">
+			<div class="shortage_wrap">
+				<dl class="body">
+					<dt class="label">チケットがありません&#x1f4a6;</dt>
+					<dd class="p">1,000円のポイント購入でチケットが1枚付与されます。</dd>
+					<dd class="btn"><a href="/buy/"><img src="./img/btn_buy.png" width="330" alt="ポイントを購入する"></a></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div class="btn_wrap">
+		<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="330" class="gacha" disabled>
+	</div>
+	<dl class="ticket_wrap">
+		<dt>保有チケット</dt>
+		<dd>9<small>枚</small></dd>
+	</dl>
+</div>
+
+<div class="gacha_present_wrap">
+	<div class="label"><img src="./img/img_chance.png" width="900" alt="1000円で一回 ガチャガチャチャンス！"></div>
+	<ul class="present_wrap">
+		<li class="open_message"><strong>初回メッセージ<br>1時間送り放題</strong></li>
+		<li class="premium_option"><strong>プレミアムオプション<br>30日分無料</strong><br>
+		<small>(すでにご利用中の方は1,000ptに代替)</small></li>
+		<li class="point"><strong>YYCポイント1,000pt</strong></li>
+		<li class="message_ticket"><strong>メッセージ無料券</strong></li>
+		<li class="profile_ticket"><strong>プロフ閲覧無料券</strong></li>
+	</ul>
+</div>
+
+</div><!--/gacha_container-->
+
+<div class="gacha_footer"><img src="./img/img_footer.png" width="900" alt="期間中は何度もガチャを楽しもう！"></div>
+
+</div><!--/wrapper-->
+
+</div><!--/container-->
+
+
+<div id="footer">
+<div class="inner">
+<ul class="f-yyc">
+<li><a href="https://www.yyc.co.jp/point/price">料金案内</a></li><!--
+--><li><a href="https://www.yyc.co.jp/docs/contract">YYC利用規約</a></li><!--
+--><li><a href="https://www.yyc.co.jp/docs/settlement">資金決済法に基づく表示</a></li><!--
+--><li class="last"><a href="https://www.yyc.co.jp/docs/transactions">特定商取引に関する法律</a></li>
+</ul>
+<ul class="f-yyc">
+<li><a href="https://www.yyc.co.jp/docs/company">会社概要</a></li><li><a href="https://www.yyc.co.jp/docs/privacy_policy">プライバシーポリシー</a></li><li><a href="https://support.yyc.co.jp/hc/ja" target="_blank">ヘルプセンター</a></li><li><a href="https://www.yyc.co.jp/lp/applist/" target="_blank">Diverse運営の出会いアプリ</a></li></ul>
+</div>
+<p class="copyright">©&nbsp;Diverse.Inc</p>
+</div>
+
+<script src="./js/freezeframe.min.js"></script>
+<script>
+'use strict';
+function showResult() {
+	var result = document.querySelector('.gacha_app .result_wrap');
+	var submit = document.querySelector('.gacha_app .btn_wrap .gacha');
+	result.classList.add('open')
+	submit.disabled = false
+}
+(function(){
+	var animationEnd = setTimeout(showResult,4500);
+}());
+</script>
+
+</body>
+</html>

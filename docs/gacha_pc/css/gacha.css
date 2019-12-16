@@ -1,0 +1,248 @@
+#gacha #cpContainer {
+  font-family: 'HiraKakuProN-W3';
+  background-color: #73cfff;
+}
+
+#wrapper.gacha .gacha_header {
+  background: url(../img/bg_header.png) repeat-x center top/auto 188px;
+}
+
+#wrapper.gacha .gacha_container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .animation {
+  border-radius: 10px;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .result_wrap {
+  position: absolute;
+  top: 13px;
+  left: 195px;
+  width: 311px;
+  height: 256px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 311px 256px;
+  -webkit-transform-origin: center 235px;
+          transform-origin: center 235px;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  visibility: hidden;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .result_wrap.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .result_wrap > p {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  height: 105px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-align: center;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .result_wrap.jackpot {
+  background-image: url(../img/bg_jackpot.png);
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  visibility: hidden;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay.open {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay .shortage_wrap {
+  position: absolute;
+  top: 188px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 619px;
+  height: 363px;
+  border: 2px solid #ff5d00;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay .shortage_wrap .body {
+  font-size: 16px;
+  text-align: center;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay .shortage_wrap .body .label {
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 90px;
+  background: url(../img/icon_shortage.png) no-repeat center top/54px;
+}
+
+#wrapper.gacha .gacha_app .gacha_frame .shortage_overlay .shortage_wrap .body .p {
+  padding: 20px 0 32px;
+}
+
+#wrapper.gacha .gacha_app .btn_wrap {
+  margin: 20px 0 16px;
+}
+
+#wrapper.gacha .gacha_app .btn_wrap > input[disabled] {
+  -webkit-filter: opacity(0.3);
+          filter: opacity(0.3);
+}
+
+#wrapper.gacha .gacha_app .ticket_wrap {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  width: 270px;
+  height: 54px;
+  background: url(../img/bg_ticket.png) no-repeat center/270px 54px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+#wrapper.gacha .gacha_app .ticket_wrap > dt {
+  font-size: 13px;
+  margin-right: 1em;
+}
+
+#wrapper.gacha .gacha_app .ticket_wrap > dd {
+  font-size: 14px;
+}
+
+#wrapper.gacha .gacha_app .ticket_wrap > dd small {
+  font-size: 12px;
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  align-content: space-between;
+  width: 840px;
+  height: 275px;
+  margin: 22px auto 50px;
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .open_message,
+#wrapper.gacha .gacha_present_wrap .present_wrap .premium_option,
+#wrapper.gacha .gacha_present_wrap .present_wrap .point {
+  width: 273px;
+  height: 175px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 273px 175px;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .open_message {
+  padding-top: 84px;
+  background-image: url(../img/frame_present_open_message.png);
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .premium_option {
+  padding-top: 84px;
+  background-image: url(../img/frame_present_premium_option.png);
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .premium_option > small {
+  display: inline-block;
+  color: #666;
+  font-size: 10px;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .point {
+  padding-top: 110px;
+  background-image: url(../img/frame_present_point.png);
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .message_ticket,
+#wrapper.gacha .gacha_present_wrap .present_wrap .profile_ticket {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  width: 410px;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 410px 80px;
+  box-sizing: border-box;
+  padding-left: 140px;
+  font-size: 16px;
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .message_ticket {
+  background-image: url(../img/frame_present_message_ticket.png);
+}
+
+#wrapper.gacha .gacha_present_wrap .present_wrap .profile_ticket {
+  background-image: url(../img/frame_present_profile_ticket.png);
+}
+
+#wrapper.gacha .gacha_footer {
+  background: url(../img/bg_footer.png) repeat-x center bottom/auto 260px;
+}

@@ -3,8 +3,10 @@
 #container.gacha {
 font-family: 'HiraKakuProN-W3';
 background-color: #73cfff;
+padding-bottom: vw(30);
 
 .gacha_present_wrap {
+	border-bottom: 10px solid #333;
 	.present_wrap {
 		padding: 0 vw(32) vw(4);
 		> li {
@@ -83,6 +85,37 @@ background-color: #73cfff;
 		}
 		.profile_ticket {
 			@include frame_body_s('../img/frame_present_profile_ticket.png');
+		}
+	}
+}
+
+.gacha_notice {
+	padding: vw(16);
+	margin: vw(16) vw(16) 0;
+	border-radius: 8px;
+	background-color: #fff;
+	box-sizing: border-box;
+	.label {
+		font-size: vw(18);
+		line-height: 1;
+		padding-bottom: vw(12);
+		border-bottom: 2px solid #333;
+		text-align: center;
+	}
+	.wrap {
+		padding-top: vw(16);
+		> dl {
+			dt {
+				font-weight: bold;
+			}
+			dd ul {
+				font-size: vw(12);
+				padding: vw(6) 0 vw(12) vw(6);
+				li {
+					line-height: 1.2;
+					padding: vw(2) 0;
+				}
+			}
 		}
 	}
 }

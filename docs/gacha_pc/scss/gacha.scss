@@ -1,6 +1,7 @@
 #gacha #cpContainer {
 	font-family: 'HiraKakuProN-W3';
 	background-color: #73cfff;
+	padding-bottom: 60px;
 }
 #wrapper.gacha {
 	.gacha_header {
@@ -191,5 +192,39 @@
 	}
 	.gacha_footer {
 		background: url(../img/bg_footer.png) repeat-x center bottom / auto 260px;
+		border-bottom: 10px solid #333;
+	}
+	.gacha_notice {
+		width: 760px;
+		margin: 20px auto 0;
+		padding: 30px 60px;
+		border-radius: 20px;
+		background-color: #fff;
+		box-sizing: border-box;
+		text-align: left;
+		.label {
+			font-size: 26px;
+			line-height: 1;
+			padding-bottom: 24px;
+			border-bottom: 2px solid #333;
+			text-align: center;
+		}
+		.wrap {
+			padding-top: 34px;
+			> dl {
+				dt {
+					font-size: 16px;
+					font-weight: bold;
+				}
+				dd ul {
+					font-size: 13px;
+					padding: 6px 0 12px 6px;
+					li {
+						line-height: 1.2;
+						padding: 2px 0;
+					}
+				}
+			}
+		}
 	}
 }

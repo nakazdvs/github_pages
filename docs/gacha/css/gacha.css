@@ -1,6 +1,11 @@
 #container.gacha {
   font-family: 'HiraKakuProN-W3';
   background-color: #73cfff;
+  padding-bottom: 8vw;
+}
+
+#container.gacha .gacha_present_wrap {
+  border-bottom: 10px solid #333;
 }
 
 #container.gacha .gacha_present_wrap .present_wrap {
@@ -117,6 +122,40 @@
           justify-content: flex-start;
   font-size: 4.8vw;
   padding-left: 34.4vw;
+}
+
+#container.gacha .gacha_notice {
+  padding: 4.3vw;
+  margin: 4.3vw 4.3vw 0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+#container.gacha .gacha_notice .label {
+  font-size: 4.8vw;
+  line-height: 1;
+  padding-bottom: 3.2vw;
+  border-bottom: 2px solid #333;
+  text-align: center;
+}
+
+#container.gacha .gacha_notice .wrap {
+  padding-top: 4.3vw;
+}
+
+#container.gacha .gacha_notice .wrap > dl dt {
+  font-weight: bold;
+}
+
+#container.gacha .gacha_notice .wrap > dl dd ul {
+  font-size: 3.2vw;
+  padding: 1.6vw 0 3.2vw 1.6vw;
+}
+
+#container.gacha .gacha_notice .wrap > dl dd ul li {
+  line-height: 1.2;
+  padding: 0.5vw 0;
 }
 
 #container.gacha .gacha_return_top {

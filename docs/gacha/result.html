@@ -16,12 +16,12 @@
 </div>
 
 <div id="vueGachaApp" class="gacha_app">
-	<gacha-body :obj="gachaObj" @again="repeat"></gacha-body>
+	<gacha-body :state="gachaState" :obj="gachaObj" @again="repeat"></gacha-body>
 	<div class="btn_wrap observeTarget">
-		<a href="#" @click.prevent="gacha" :class="disabled">
-			<img src="./img/btn_gacha_re.png" alt="もう一度やる" width="100%" v-if="isAgain">
-			<img src="./img/btn_gacha.png" class="disabled" alt="ガチャを回す" width="100%" v-else>
-		</a>
+		<form method="POST" action="./result.html" @submit.prevent="gachaStart">
+			<input type="image" src="./img/btn_gacha_re.png" value="もう一度やる" width="100%" v-if="isAgain">
+			<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="100%" :class="disabled" disabled v-else>
+		</form>
 	</div>
 	<div class="ticket_wrap">
 		<dl class="ticket">
@@ -86,6 +86,9 @@ const gachaBody = Vue.extend({
 		}
 	},
 	props: {
+		state: {
+			type: Object
+		},
 		obj: {
 			type: Object
 		}
@@ -104,17 +107,17 @@ const gachaBody = Vue.extend({
 		},
 		shortage() {
 			return {
-				open: this.obj.shortage
+				open: this.state.shortage
 			}
 		},
 		shake() {
 			return {
-				shake: this.obj.isStart
+				shake: this.state.start
 			}
 		},
 		rotate() {
 			return {
-				rotate: this.obj.isStart
+				rotate: this.state.start
 			}
 		},
 		upperSlide() {
@@ -165,11 +168,11 @@ new Vue({
 	el: "#vueGachaApp",
 	data: {
 		gachaObj: {
-			shortage: false,
-			isStart: false,
 			result: 'jackpot',
 			present: '初回メッセージ<br>1時間送り放題'
 		},
+		shortage: false,
+		animationStart: false,
 		ticket: 0,
 		again: false,
 	},
@@ -177,6 +180,12 @@ new Vue({
 		gachaBody
 	},
 	computed: {
+		gachaState() {
+			return {
+				shortage: this.shortage,
+				start: this.animationStart
+			}
+		},
 		isAgain() {
 			return this.again
 		},
@@ -188,24 +197,24 @@ new Vue({
 	},
 	mounted() {
 		this.$nextTick(function(){
-			this.start()
+			this.lotteryStart()
 		})
 	},
 	methods: {
 		repeat() {
 			this.again = true
 		},
-		start() {
-			this.$set(this.gachaObj,"isStart",true)
+		lotteryStart() {
+			this.animationStart = true
 		},
-		gacha() {
+		gachaStart(e) {
+			const form = e.target
 			const hasTicket = (this.ticket === 0 ? false : true)
 			if (hasTicket ) {
-				location.reload()
+				form.submit()
 			} else {
-				this.$set(this.gachaObj,"shortage",true)
+				this.shortage = true
 			}
-			
 		}
 	}
 })

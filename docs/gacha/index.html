@@ -29,7 +29,11 @@
 			</dl>
 		</div>
 	</div>
-	<div class="btn_wrap observeTarget"><a href="#" @click.prevent="start"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="100%"></a></div>
+	<div class="btn_wrap observeTarget">
+		<form method="POST" action="./result.html" @submit.prevent="gachaStart">
+			<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="100%">
+		</form>
+	</div>
 	<div class="ticket_wrap">
 		<dl class="ticket">
 			<dt>保有チケット</dt>
@@ -141,10 +145,11 @@ new Vue({
 		}
 	},
 	methods: {
-		start() {
+		gachaStart(e) {
+			const form = e.target
 			const hasTicket = (this.ticket === 0 ? false : true)
 			if (hasTicket ) {
-				location.href = './result.html'
+				form.submit
 			} else {
 				this.isShortage = true
 			}

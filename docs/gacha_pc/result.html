@@ -37,8 +37,8 @@
 
 <div class="gacha_app">
 	<div class="gacha_frame">
-		<img src="./img/gacha_animation_jackpot.gif" class="animation" width="700">
-		<div class="result_wrap jackpot"><p>初回メッセージ<br>1時間送り放題</p></div>
+		<img src="./img/gacha_main.png" class="main" width="700" id="changeImg">
+		<div class="result_wrap"><p id="setPresentText"></p id="changeImg"></div>
 		<div class="shortage_overlay">
 			<div class="shortage_wrap">
 				<dl class="body">
@@ -50,11 +50,13 @@
 		</div>
 	</div>
 	<div class="btn_wrap">
-		<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="330" class="gacha" disabled>
+		<form method="POST" action="./result.html" name="gacha_form">
+			<input type="image" src="./img/btn_gacha_re.png" value="ガチャを回す" width="330" class="gacha" disabled>
+		</form>
 	</div>
 	<dl class="ticket_wrap">
 		<dt>保有チケット</dt>
-		<dd>9<small>枚</small></dd>
+		<dd><span id="hasTicket"></span><small>枚</small></dd>
 	</dl>
 </div>
 
@@ -101,19 +103,18 @@
 <p class="copyright">©&nbsp;Diverse.Inc</p>
 </div>
 
-<script src="./js/freezeframe.min.js"></script>
+<script src="./js/gacha.js"></script>
 <script>
 'use strict';
-function showResult() {
-	var result = document.querySelector('.gacha_app .result_wrap');
-	var submit = document.querySelector('.gacha_app .btn_wrap .gacha');
-	result.classList.add('open')
-	submit.disabled = false
+var gachaObj = {
+	ticket: 0,
+	result: 0,
+	present: 3
 }
-(function(){
-	var animationEnd = setTimeout(showResult,4500);
-}());
-</script>
+
+var Gacha = new Gacha(gachaObj)
+Gacha.setResult()
+</script> 
 
 </body>
 </html>

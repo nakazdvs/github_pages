@@ -36,11 +36,26 @@
 <div class="gacha_container">
 
 <div class="gacha_app">
-	<div class="gacha_frame"><img src="./img/gacha_main.png" width="700"></div>
-	<div class="btn_wrap"><a href="#"><img src="./img/btn_gacha.png" alt="ガチャを回す" width="330"></a></div>
+	<div class="gacha_frame">
+		<img src="./img/gacha_main.png" class="main" width="700">
+		<div class="shortage_overlay">
+			<div class="shortage_wrap">
+				<dl class="body">
+					<dt class="label">チケットがありません&#x1f4a6;</dt>
+					<dd class="p">1,000円のポイント購入でチケットが1枚付与されます。</dd>
+					<dd class="btn"><a href="/buy/"><img src="./img/btn_buy.png" width="330" alt="ポイントを購入する"></a></dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div class="btn_wrap">
+		<form method="POST" action="./result.html" name="gacha_form">
+			<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="330">
+		</form>
+	</div>
 	<dl class="ticket_wrap">
 		<dt>保有チケット</dt>
-		<dd>9<small>枚</small></dd>
+		<dd><span id="hasTicket"></span><small>枚</small></dd>
 	</dl>
 </div>
 
@@ -144,6 +159,16 @@
 </div>
 <p class="copyright">©&nbsp;Diverse.Inc</p>
 </div>
+
+<script src="./js/gacha.js"></script>
+<script>
+'use strict';
+var gachaObj = {
+	ticket: 0
+}
+var Gacha = new Gacha(gachaObj)
+Gacha.setIndex()
+</script>
 
 </body>
 </html>

@@ -16,7 +16,7 @@
 			position: relative;
 			width: 700px;
 			margin: 0 auto;
-			.animation {
+			.main {
 				border-radius: 10px;
 			}
 			.result_wrap {
@@ -57,6 +57,7 @@
 				}
 			}
 			.shortage_overlay {
+				visibility: hidden;
 				position: fixed;
 				top: 0;
 				right: 0;
@@ -67,20 +68,17 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				transition: .3s;
-				opacity: 0;
-				transform: scale(.3);
-				visibility: hidden;
 				&.open {
 					visibility: visible;
-					opacity: 1;
-					transform: scale(1);
 				}
 				.shortage_wrap {
 					position: absolute;
 					top: 188px;
 					left: 50%;
 					transform: translateX(-50%);
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					width: 619px;
 					height: 363px;
 					border: 2px solid #ff5d00;
@@ -104,7 +102,7 @@
 		}
 		.btn_wrap {
 			margin: 20px 0 16px;
-			> input[disabled] {
+			input[disabled] {
 				filter: opacity(.3);
 			}
 		}

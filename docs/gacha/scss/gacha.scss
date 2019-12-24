@@ -386,10 +386,7 @@ padding-bottom: vw(30);
 	.btn_wrap {
 		padding: 0 vw(50);
 		.disabled {
-			pointer-events: none;
-			img {
-				filter: opacity(.3);
-			}
+			filter: opacity(.3);
 		}
 	}
 	.ticket_wrap {

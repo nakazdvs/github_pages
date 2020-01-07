@@ -1,0 +1,99 @@
+@import './node_modules/reset-css/sass/reset';
+
+#container_wrapper {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	background-color: #fff;
+	box-sizing: border-box;
+	#container_navigation {
+		flex-basis: 80px;
+		display: flex;
+		justify-content: center;
+		border-right: 1px solid #ccc;
+	}
+	#container_main {
+		flex: 1;
+	}
+}
+
+#container_navigation {
+	$icon_list: search,message,tsubuyaki,bbs,contents;
+	.container_navigation_body {
+		display: flex;
+		flex-direction: column;
+		padding-top: 15px;
+		.list_item {
+			padding: 15px 0;
+			.list_item_icon {
+				display: block;
+				width: 30px;
+				height: 30px;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 26px auto;
+				@each $icon in $icon_list {
+					&.#{$icon} {
+						background-image: url(./img/#{$icon}.png);
+					}
+				}
+				&.top {
+					background-position: left center;
+					background-size: auto 30px;
+					background-image: url(./img/logo.png);
+				}
+				&.my {
+					border-radius: 50%;
+					background-image: url(./img/prof.png);
+					background-size: 30px auto;
+					overflow: hidden;
+				}
+			}
+		}
+	}
+}
+#container_main {
+	display: flex;
+	flex-direction: column;
+	.container_main_header {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		height: 50px;
+		border-bottom: 1px solid #ccc;
+		.logo {
+			margin: auto;
+			.icon {
+				display: block;
+				width: 90px;
+				height: 26px;
+				background: url(./img/logo.png) no-repeat center / 90px 26px;
+			}
+		}
+		.tool {
+			display: flex;
+			justify-content: space-between;
+			width: 50px;
+			margin-right: 15px;
+			.item {
+				.item_icon {
+					display: block;
+					width: 20px;
+					height: 20px;
+					background-repeat: no-repeat;
+					background-position: center;
+					background-size: 20px auto;
+					&.footprint {
+						background-image: url(./img/footprint.png);
+					}
+					&.notify {
+						background-image: url(./img/notify.png);
+					}
+				}
+			}
+		}
+	}
+	.container_main_scrollbody {
+		flex: 1;
+	}
+}

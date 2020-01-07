@@ -59,7 +59,6 @@ table {
 
 #container_wrapper {
   width: 100vw;
-  height: 100vh;
   display: flex;
   background-color: #fff;
   box-sizing: border-box;

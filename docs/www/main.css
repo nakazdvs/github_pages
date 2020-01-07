@@ -177,4 +177,10 @@ table {
 
 #container_main .container_main_scrollbody {
   flex: 1;
+  overflow: scroll;
+}
+
+#container_main .container_main_scrollbody .main_body {
+  background: linear-gradient(#fff, #999);
+  height: 2000px;
 }

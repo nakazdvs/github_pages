@@ -96,6 +96,7 @@
 	.container_main_scrollbody {
 		flex: 1;
 		overflow: scroll;
+		//-webkit-overflow-scrolling: touch;
 		.main_body {
 			background:linear-gradient(#fff, #999);
 			height: 2000px;

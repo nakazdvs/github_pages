@@ -22,7 +22,7 @@
 	</nav>
 	<div id="container_main">
 		<div class="container_main_header">
-			<div class="logo"><a href="" title="return top" class="icon"></a></div>
+			<div class="logo"><span data-scroll title="return top" class="icon"></span></div>
 			<ul class="tool">
 				<li class="item"><a href="" title="足あと" class="item_icon footprint"></a></li>
 				<li class="item"><a href="" title="通知" class="item_icon notify"></a></li>
@@ -37,6 +37,19 @@
 
 <script>
 'use strict';
+(function(){
+	var dataScroll = document.querySelector('span[data-scroll]');
+	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')
+	dataScroll.addEventListener('click',function(){
+		var scroll = container_main_scrollbody.scrollTop
+		while(scroll > 0) {
+			scroll = scroll - 1
+			console.log(scroll)
+			container_main_scrollbody.scrollTop = scroll
+		}
+		return
+	})
+}());
 (function(){
 	const wrapper = document.getElementById('container_wrapper');
 	wrapper.style.height = window.innerHeight + 'px';

@@ -54,6 +54,9 @@
 (function(){
 	const wrapper = document.getElementById('container_wrapper');
 	wrapper.style.height = window.innerHeight + 'px';
+	window.addEventListener('orientationchange',function(){
+		wrapper.style.height = window.innerHeight + 'px';
+	})
 }());
 (function(){
 	const contents = document.querySelector('.list_item_icon.contents')

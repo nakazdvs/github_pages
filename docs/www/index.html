@@ -18,7 +18,7 @@
 			<li class="list_item"><a href="" title="募集" class="list_item_icon bbs"></a></li>
 			<li class="list_item"><a href="" title="マイページ" class="list_item_icon my"></a></li>
 			<li class="list_item"><a href="" title="その他コンテンツ" class="list_item_icon contents"></a>
-				<div class="navigation_sub">
+				<div class="navigation_sub" style="display: none;">
 					<ul class="navigation_sub_body">
 						<li class="sub_list_item"><a href="" class="sub_list_item_icon community">コミュニティ</a></li>
 						<li class="sub_list_item"><a href="" class="sub_list_item_icon photocon">フォトコンテスト</a></li>
@@ -51,6 +51,14 @@
 <script src="./js/moveTo.min.js"></script>
 <script>
 'use strict';
+(function(){
+	const contents = document.querySelector('.list_item_icon.contents')
+	const navigation_sub = document.querySelector('.navigation_sub')
+	contents.addEventListener('click',function(e){
+		e.preventDefault()
+		navigation_sub.style.display = 'block'
+	})
+}());
 (function(){
 	var datascroll = document.querySelector('[data-scroll]')
 	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')

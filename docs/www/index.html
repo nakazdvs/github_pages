@@ -35,19 +35,33 @@
 		</div>
 </div>
 
+<script type="module">
+import smoothscroll from './js/smoothscroll.js';
+smoothscroll.polyfill();
+</script>
 <script>
 'use strict';
+
 (function(){
 	var dataScroll = document.querySelector('span[data-scroll]');
 	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')
 	dataScroll.addEventListener('click',function(){
+		var callbackId
 		var scroll = container_main_scrollbody.scrollTop
-		while(scroll > 0) {
-			scroll = scroll - 1
-			console.log(scroll)
+		container_main_scrollbody.scrollTo({
+			top:0,
+			behavior:"smooth"
+		})
+
+		/*
+		var frame = function(time) {
+			scroll = scroll - 10
 			container_main_scrollbody.scrollTop = scroll
+			callbackId = requestAnimationFrame(frame)
+			if (scroll < 1) cancelAnimationFrame(callbackId)
 		}
-		return
+		frame()
+		*/
 	})
 }());
 (function(){

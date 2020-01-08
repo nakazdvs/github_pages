@@ -178,9 +178,10 @@ table {
 #container_main .container_main_scrollbody {
   flex: 1;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 #container_main .container_main_scrollbody .main_body {
-  background: linear-gradient(#fff, #999);
+  background: url(./img/logo.png) repeat-y;
   height: 2000px;
 }

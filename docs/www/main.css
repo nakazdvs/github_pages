@@ -57,6 +57,10 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-family: 'HiraKakuProN-W3';
+}
+
 #container_wrapper {
   width: 100vw;
   display: flex;

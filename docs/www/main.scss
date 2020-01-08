@@ -59,7 +59,7 @@ body {
 			position: absolute;
 			top: -70px;
 			left: 80px;
-			width: 160px;
+			width: 180px;
 			height: 220px;
 			padding: 12px;
 			background: #fff;
@@ -68,11 +68,13 @@ body {
 			-webkit-overflow-scrolling: touch;
 			.navigation_sub_body {
 				.sub_list_item {
-					border-bottom: 1px solid #ccc;
+					&:not(:last-child) {
+						border-bottom: 1px solid #ccc;
+					}
 					.sub_list_item_icon {
 						display: flex;
 						align-items: center;
-						height: 30px;
+						height: 40px;
 						color: #333;
 						font-size: 14px;
 						text-decoration: none;
@@ -80,7 +82,7 @@ body {
 						background-repeat: no-repeat;
 						background-position: 0 center;
 						background-size: auto 30px;
-						$icon_list: community,photocon;
+						$icon_list: community,photocon,photoalbum,gourmet,diary,iine,timeline;
 						@each $icon in $icon_list {
 							&.#{$icon} {
 								background-image: url(./img/contents/#{$icon}.png);

@@ -137,7 +137,7 @@ body {
   position: absolute;
   top: -70px;
   left: 80px;
-  width: 160px;
+  width: 180px;
   height: 220px;
   padding: 12px;
   background: #fff;
@@ -146,14 +146,14 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item {
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
 #container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon {
   display: flex;
   align-items: center;
-  height: 30px;
+  height: 40px;
   color: #333;
   font-size: 14px;
   text-decoration: none;
@@ -169,6 +169,26 @@ body {
 
 #container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.photocon {
   background-image: url(./img/contents/photocon.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.photoalbum {
+  background-image: url(./img/contents/photoalbum.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.gourmet {
+  background-image: url(./img/contents/gourmet.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.diary {
+  background-image: url(./img/contents/diary.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.iine {
+  background-image: url(./img/contents/iine.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.timeline {
+  background-image: url(./img/contents/timeline.png);
 }
 
 #container_main {

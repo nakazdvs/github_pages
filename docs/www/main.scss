@@ -60,7 +60,8 @@ body {
 			opacity: 0;
 			transition: .2s;
 			position: absolute;
-			top: -90px;
+			//top: -90px;
+			bottom: -90px;
 			left: 80px;
 			width: 180px;
 			height: 240px;
@@ -70,7 +71,7 @@ body {
 			filter: drop-shadow(0px 0px 3px #cccccc);
 			&::before {
 				position: absolute;
-				top: 110px;
+				bottom: 110px;
 				left: -20px;
 				display: block;
 				border-top: 10px solid transparent;
@@ -85,7 +86,7 @@ body {
 			}
 			&.fullscreen {
 				width: 500px;
-				height: 500px;
+				height: 400px;
 				//transform: translateY(-140px);
 			}
 			.fullscreen {

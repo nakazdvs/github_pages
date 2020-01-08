@@ -24,6 +24,7 @@
 		flex-direction: column;
 		padding-top: 15px;
 		.list_item {
+			position: relative;
 			padding: 15px 0;
 			.list_item_icon {
 				display: block;
@@ -47,6 +48,41 @@
 					background-image: url(./img/prof.png);
 					background-size: 30px auto;
 					overflow: hidden;
+				}
+			}
+		}
+		.navigation_sub {
+			position: absolute;
+			top: -70px;
+			left: 80px;
+			width: 160px;
+			height: 220px;
+			padding: 12px;
+			background: #fff;
+			border-radius: 5px;
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
+			.navigation_sub_body {
+				.sub_list_item {
+					border-bottom: 1px solid #ccc;
+					.sub_list_item_icon {
+						display: flex;
+						align-items: center;
+						height: 30px;
+						color: #333;
+						font-size: 14px;
+						text-decoration: none;
+						padding-left: 32px;
+						background-repeat: no-repeat;
+						background-position: 0 center;
+						background-size: auto 30px;
+						$icon_list: community,photocon;
+						@each $icon in $icon_list {
+							&.#{$icon} {
+								background-image: url(./img/contents/#{$icon}.png);
+							}
+						}
+					}
 				}
 			}
 		}

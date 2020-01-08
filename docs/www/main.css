@@ -82,6 +82,7 @@ table {
 }
 
 #container_navigation .container_navigation_body .list_item {
+  position: relative;
   padding: 15px 0;
 }
 
@@ -125,6 +126,44 @@ table {
   background-image: url(./img/prof.png);
   background-size: 30px auto;
   overflow: hidden;
+}
+
+#container_navigation .container_navigation_body .navigation_sub {
+  position: absolute;
+  top: -70px;
+  left: 80px;
+  width: 160px;
+  height: 220px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 5px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item {
+  border-bottom: 1px solid #ccc;
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  padding-left: 32px;
+  background-repeat: no-repeat;
+  background-position: 0 center;
+  background-size: auto 30px;
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.community {
+  background-image: url(./img/contents/community.png);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item .sub_list_item_icon.photocon {
+  background-image: url(./img/contents/photocon.png);
 }
 
 #container_main {

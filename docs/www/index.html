@@ -22,46 +22,34 @@
 	</nav>
 	<div id="container_main">
 		<div class="container_main_header">
-			<div class="logo"><span data-scroll title="return top" class="icon"></span></div>
+			<div class="logo"><span title="return top" class="icon" data-scroll></span></div>
 			<ul class="tool">
 				<li class="item"><a href="" title="足あと" class="item_icon footprint"></a></li>
 				<li class="item"><a href="" title="通知" class="item_icon notify"></a></li>
 			</ul>
 		</div>
 		<div class="container_main_scrollbody">
+			<span id="top"></span>
 			<main class="main_body">
 				めいんだおぅ
 			</main>
 		</div>
 </div>
 
-<script type="module">
-import {smoothscroll} from './js/smoothscroll.js';
-smoothscroll.polyfill();
-</script>
+<script src="./js/moveTo.min.js"></script>
 <script>
 'use strict';
-
 (function(){
-	var dataScroll = document.querySelector('span[data-scroll]');
+	var datascroll = document.querySelector('[data-scroll]')
 	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')
-	dataScroll.addEventListener('click',function(){
-		var callbackId
-		var scroll = container_main_scrollbody.scrollTop
-		container_main_scrollbody.scrollTo({
-			top:0,
-			behavior:"smooth"
+	var main_body = document.querySelector('.main_body')
+	datascroll.addEventListener('click',function(){
+		const scroll = container_main_scrollbody.scrollTop
+		const moveTo = new MoveTo({
+			duration: 300,
+			container:container_main_scrollbody
 		})
-
-		/*
-		var frame = function(time) {
-			scroll = scroll - 10
-			container_main_scrollbody.scrollTop = scroll
-			callbackId = requestAnimationFrame(frame)
-			if (scroll < 1) cancelAnimationFrame(callbackId)
-		}
-		frame()
-		*/
+		moveTo.move(-scroll)
 	})
 }());
 (function(){

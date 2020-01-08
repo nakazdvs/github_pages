@@ -182,6 +182,6 @@ table {
 }
 
 #container_main .container_main_scrollbody .main_body {
-  background: url(./img/logo.png) repeat-y;
+  background: linear-gradient(#fff, #333), url(./img/logo.png) repeat-y;
   height: 2000px;
 }

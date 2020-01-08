@@ -17,8 +17,8 @@
 			<li class="list_item"><a href="" title="つぶやき" class="list_item_icon tsubuyaki"></a></li>
 			<li class="list_item"><a href="" title="募集" class="list_item_icon bbs"></a></li>
 			<li class="list_item"><a href="" title="マイページ" class="list_item_icon my"></a></li>
-			<li class="list_item"><a href="" title="その他コンテンツ" class="list_item_icon contents"></a>
-				<div class="navigation_sub" style="display: none;">
+			<li class="list_item"><a href="#" title="その他コンテンツ" class="list_item_icon contents"></a>
+				<div class="navigation_sub"><a href="#" class="fullscreen"></a>
 					<ul class="navigation_sub_body">
 						<li class="sub_list_item"><a href="" class="sub_list_item_icon community">コミュニティ</a></li>
 						<li class="sub_list_item"><a href="" class="sub_list_item_icon photocon">フォトコンテスト</a></li>
@@ -52,17 +52,26 @@
 <script>
 'use strict';
 (function(){
+	const wrapper = document.getElementById('container_wrapper');
+	wrapper.style.height = window.innerHeight + 'px';
+}());
+(function(){
 	const contents = document.querySelector('.list_item_icon.contents')
 	const navigation_sub = document.querySelector('.navigation_sub')
 	contents.addEventListener('click',function(e){
 		e.preventDefault()
-		navigation_sub.style.display = 'block'
+		navigation_sub.classList.toggle('open')
+	})
+	const fullscreen = document.querySelector('.navigation_sub .fullscreen')
+	fullscreen.addEventListener('click',function(e){
+		e.preventDefault()
+		navigation_sub.classList.toggle('fullscreen')
+		this.classList.toggle('exit')
 	})
 }());
 (function(){
 	var datascroll = document.querySelector('[data-scroll]')
 	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')
-	var main_body = document.querySelector('.main_body')
 	datascroll.addEventListener('click',function(){
 		const scroll = container_main_scrollbody.scrollTop
 		const moveTo = new MoveTo({
@@ -71,10 +80,6 @@
 		})
 		moveTo.move(-scroll)
 	})
-}());
-(function(){
-	const wrapper = document.getElementById('container_wrapper');
-	wrapper.style.height = window.innerHeight + 'px';
 }());
 </script>
 </body>

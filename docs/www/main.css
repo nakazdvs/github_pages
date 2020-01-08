@@ -134,16 +134,44 @@ body {
 }
 
 #container_navigation .container_navigation_body .navigation_sub {
+  visibility: hidden;
+  opacity: 0;
+  transition: .2s;
   position: absolute;
   top: -70px;
   left: 80px;
   width: 180px;
   height: 220px;
-  padding: 12px;
+  padding: 29px 12px 12px;
   background: #fff;
   border-radius: 5px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+#container_navigation .container_navigation_body .navigation_sub.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+#container_navigation .container_navigation_body .navigation_sub.fullscreen {
+  width: 500px;
+  height: 500px;
+  transform: translateY(-140px);
+}
+
+#container_navigation .container_navigation_body .navigation_sub .fullscreen {
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 24px;
+  height: 24px;
+  background: url(./img/fullscreen.png) no-repeat center/24px;
+}
+
+#container_navigation .container_navigation_body .navigation_sub .fullscreen.exit {
+  background: url(./img/fullscreen_exit.png) no-repeat center/24px;
 }
 
 #container_navigation .container_navigation_body .navigation_sub .navigation_sub_body .sub_list_item:not(:last-child) {

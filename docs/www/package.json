@@ -1,0 +1,24 @@
+{
+  "name": "gacha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss:css": "node-sass --output-style expanded main.scss main.css",
+    "prefix": "postcss -u autoprefixer --no-map ./css/gacha.css -r ./css/gacha.css",
+    "build": "yarn run scss:css && yarn run prefix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.5.1",
+    "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0",
+    "reset-css": "^5.0.1"
+  },
+  "browserslist": [
+    "> 1% in JP",
+    "Android >= 4"
+  ]
+}

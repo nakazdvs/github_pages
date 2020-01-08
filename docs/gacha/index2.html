@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>無題ドキュメント</title>
+<meta name="viewport" content="width=devise-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="./css/gacha.css">
+<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<div id="container" class="gacha">
+
+<div class="gacha_header">
+	<img src="./img/header.png" width="100%" alt="ハズレなし!!YYCガチャ">
+</div>
+
+<div id="vueGachaApp" class="gacha_app">
+	<div class="gacha_frame">
+		<div class="gacha_inner_frame">
+			<img src="./img/gacha_main.png" width="100%">
+		</div>
+		<div class="shortage_wrap" :class="openShortage">
+			<dl class="body">
+				<dt class="label">チケットがありません&#x1f4a6;</dt>
+				<dd class="p">1,000円のポイント購入で<br>
+				チケットが1枚付与されます。</dd>
+				<dd class="btn"><a href="/buy/"><img src="./img/btn_buy.png" width="100%" alt="ポイントを購入する"></a></dd>
+			</dl>
+		</div>
+	</div>
+	<div class="btn_wrap observeTarget">
+		<form method="POST" action="./result.html" @submit.prevent="onLottery">
+			<input type="image" src="./img/btn_gacha.png" value="ガチャを回す" width="100%">
+		</form>
+	</div>
+	<div class="ticket_wrap">
+		<dl class="ticket">
+			<dt>保有チケット</dt>
+			<dd>{{ticket}}<small>枚</small></dd>
+		</dl>
+	</div>
+</div>
+
+<div id="vueGachaReturnTop" class="gacha_return_top">
+	<span class="btn" :class="appear"></span>
+</div>
+
+<div class="gacha_present_wrap">
+	<div class="label"><img src="./img/img_chance.png" width="100%" alt="1000円で一回 ガチャガチャチャンス！"></div>
+	<ul class="present_wrap">
+		<li class="open_message"><div class="wrap"><strong>初回メッセージ<br>1時間送り放題</strong></div></li>
+		<li class="premium_option"><div class="wrap"><strong>プレミアムオプション<br>30日分無料</strong><br>
+		<small>(すでにご利用中の方は1,000ptに代替)</small></div></li>
+		<li class="point"><div class="wrap"><strong>YYCポイント1,000pt</strong></div></li>
+		<li class="message_ticket"><div class="wrap"><strong>メッセージ無料券</strong></div></li>
+		<li class="profile_ticket"><div class="wrap"><strong>プロフ閲覧無料券</strong></div></li>
+	</ul>
+	<div class="footer"><img src="./img/img_footer.png" width="100%" alt="期間中は何度もガチャを楽しもう！"></div>
+</div>
+
+<div class="gacha_notice">
+	<div class="label"><strong>キャンペーンについて</strong></div>
+	<div class="wrap">
+		<dl>
+			<dt>キャンペーン概要</dt>
+			<dd><ul>
+				<li>[1] キャンペーン対象ユーザー様が、期間中にYYCポイントを1回の決済につき1,000円（税込）ご購入ごとに、ガチャチケット1枚を無償付与いたします。</li>
+				<li>[2] 付与されたガチャチケットを1枚を使用して、YYCガチャを1回引くことが出来ます。</li>
+				<li>[3] YYCガチャの抽選結果で当選したサービス内ポイント/アイテム/サービスを、無償付与いたします。</li>
+			</ul></dd>
+			<dt>キャンペーン期間</dt>
+			<dd><ul>
+				<li>開始：2019年12月24日(火)以降、案内メッセージ受信時から</li>
+				<li>終了：2020年1月13日(月)まで</li>
+				<li>※本キャンペーンは予告なくキャンペーン内容を変更または終了する場合があります。あらかじめご了承ください。</li>
+				<li>※キャンペーン期間中であっても、ご案内メッセージ受信前のポイント購入は、ガチャチケットの付与カウント対象外となります。</li>
+			</ul></dd>
+			<dt>キャンペーン対象</dt>
+			<dd><ul>
+				<li>「YYCからのお知らせ」アカウントより、本キャンペーンのご案内メッセージを受け取られた方。</li>
+				<li>※本キャンペーンは対象者を限定させていただいております。具体的な適用条件についてはお答えできませんので、あらかじめご了承ください。</li>
+				<li>※キャンペーン期間中であっても、ご案内メッセージ受信前のポイント購入は、ガチャチケットの付与カウント対象外となります。</li>
+			</ul></dd>
+			<dt>ガチャチケットの付与</dt>
+			<dd><ul>
+				<li>対象ユーザー様がご案内メッセージを受信後、キャンペーン終了日時までにYYCポイントをご購入いただいた際に、</li>
+				<li>1回の決済でのご購入額1,000円(税込)ごとに1枚、ガチャチケットを無償付与いたします。<br>
+				<br>
+				例1）1回の決済で、1,100円(税込)のポイント購入 => ガチャ1回分のチケット付与<br>
+				例2）1回の決済で、5,500円(税込)のポイント購入 => ガチャ5回分のチケット付与<br>
+				例3）1回の決済で、11,000円(税込)のポイント購入 => ガチャ11回分のチケット付与<br>
+				例4）2回の決済で、各5,500円(税込)のポイント購入 => ガチャ10回分（=5回分×2）のチケット付与<br>
+				※期間中の合計額ではなく、1回の決済ごとに算出し、税込み1,000円につきチケット1枚（ガチャ1回分）が付与されます。</li>
+			</ul></dd>
+			<dt>ガチャ抽選・特典</dt>
+			<dd><ul>
+				<li>1回の抽選につき、以下のいずれかがランダムで当選・付与されます。<br>
+				<br>
+				<b>・YYCポイント1,000pt</b><br>
+				YYC内で使える無料ポイント（1,000pt）です。当選された場合は、<a href="/my/" class="mdl_decoration_link">マイページ</a>から保持ポイント数を確認できます。<br>
+				<br>
+				<b>・初回メッセージ1時間送り放題</b><br>
+				過去に一度も双方いずれからもやり取り履歴のない女性ユーザー様宛に初めて送信する1通目のサービス内メッセージを、
+				チケット利用開始から1時間の間、何人でも送ることができる特別なアイテムです。<br>
+				無料チケット（ポイントパック）自体の有効期限は付与日から30日間となります。<br>
+				当選された場合は、<a href="/point_pack/" class="mdl_decoration_link">ポイントパック</a>のページから保有枚数および残有効期限の確認及び利用ができます。<br>
+				<br>
+				<b>・プレミアムオプション30日分（または1,000ポイント）</b><br>
+				当選時にプレミアムオプションにご利用されていないユーザー様は、YYC内のプレミアム機能を30日間無料でご利用いただけます。<br>
+				当選時よりプレミアム機能が有効になり、<a href="/my/config/premium_option/" class="mdl_decoration_link">プレミアムオプション</a>のページから有効日数を確認できます。30日間経過後の自動継続はありません。<br>
+				※すでにプレミアムオプションをご利用中のユーザー様がご当選された場合は、代わりに1,000YYCポイントを付与します。<br>
+				<br>
+				<b>・メール送信無料券</b><br>
+				YYCサービス内メッセージを1枚につき1通無料で送信できるチケット（ポイントパック）です。有効期限は付与日から30日間となります。<br>
+				メッセージ送信時に自動的にお持ちのポイントよりも優先利用されます。<br>
+				当選された場合は、<a href="/point_pack/" class="mdl_decoration_link">ポイントパック</a>のページから保有枚数および残有効期限の確認ができます。<br>
+				<br>
+				<b>・プロフ閲覧無料券</b><br>
+				YYCサービス内プロフィール閲覧を1枚につき1回無料で閲覧できるチケット（ポイントパック）です。有効期限は付与日から30日間となります。<br>
+				プロフィール閲覧時に自動的にお持ちのポイントよりも優先利用されます。<br>
+				当選された場合は、<a href="/point_pack/" class="mdl_decoration_link">ポイントパック</a>のページから保有枚数および残有効期限の確認ができます。</li>
+			</ul></dd>
+		</dl>
+	</div>
+</div>
+
+</div><!--/container-->
+
+<script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
+<script>
+'use strict'
+
+var resultObj = {
+	ticket_count: 0,
+}
+
+new Vue({
+	el: "#vueGachaApp",
+	data: {
+		resultObj: resultObj,
+		isShortage: false
+	},
+	computed: {
+		ticket() {
+			return this.resultObj.ticket_count
+		},
+		openShortage() {
+			return {
+				open: this.isShortage
+			}
+		}
+	},
+	methods: {
+		onLottery(e) {
+			const form = e.target
+			const hasTicket = (this.ticket === 0 ? false : true)
+			if ( hasTicket ) {
+				form.submit
+			} else {
+				this.isShortage = true
+			}
+		}
+	}
+})
+
+new Vue({
+	el: "#vueGachaReturnTop",
+	data: {
+		isAppear: false
+	},
+	computed: {
+		appear() {
+			return {
+				appear: this.isAppear
+			}
+		}
+	},
+	mounted() {
+		this.btnObserve()
+	},
+	methods: {
+		btnObserve() {
+			const btn = document.querySelector('.observeTarget')
+			const options = {
+				root: null,
+				rootMargin: '0px',
+				threshold: 0
+			}
+			const observer = new IntersectionObserver(this.observeCallback, options)
+			observer.observe(btn)
+		},
+		observeCallback(entries) {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) {
+					this.isAppear = true
+				} else {
+					this.isAppear = false
+				}
+			})
+		}
+	}
+})
+</script>
+</body>
+</html>

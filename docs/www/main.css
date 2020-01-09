@@ -60,6 +60,11 @@ table {
 
 body {
   font-family: 'ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','HiraKakuProN-W3';
+  color: #333;
+}
+
+strong, b {
+  font-weight: bold;
 }
 
 #container_wrapper {
@@ -296,5 +301,63 @@ body {
 }
 
 #container_main .container_main_scrollbody .main_body {
+  width: 663px;
   height: 2000px;
+  background-color: #fff;
+  padding-top: 24px;
+  margin: 0 auto;
+}
+
+#search .search_module_container {
+  margin-bottom: 32px;
+}
+
+#search .search_module_container .search_module_wrap_label {
+  font-size: 18px;
+}
+
+#search .search_module_container .search_module_wrap {
+  margin-top: 16px;
+}
+
+#search .search_recommend {
+  display: flex;
+  justify-content: space-between;
+}
+
+#search .search_recommend .item_square {
+  flex-basis: 126px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  overflow: hidden;
+  filter: drop-shadow(0px 4px 2px rgba(155, 155, 155, 0.5));
+}
+
+#search .search_recommend .item_square .prof_image {
+  display: block;
+  width: 126px;
+  height: 126px;
+  background: url(./img/mio_3.jpg) no-repeat center/130px auto;
+}
+
+#search .search_recommend .item_square .btn_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background-color: #fff;
+}
+
+#search .search_recommend .item_square .btn_wrap .btn_show_profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 93%;
+  height: 24px;
+  color: #ff8e8d;
+  font-size: 12px;
+  text-decoration: none;
+  border-radius: 12px;
+  border: 1px solid #ff8e8d;
 }

@@ -145,6 +145,7 @@ strong, b {
   position: absolute;
   bottom: -90px;
   left: 80px;
+  z-index: 99;
   width: 180px;
   height: 240px;
   background: #fff;
@@ -338,7 +339,7 @@ strong, b {
   display: block;
   width: 126px;
   height: 126px;
-  background: url(./img/mio_3.jpg) no-repeat center/130px auto;
+  background: url(./img/mio_3.jpg) no-repeat center/126px auto;
 }
 
 #search .search_recommend .item_square .btn_wrap {
@@ -360,4 +361,44 @@ strong, b {
   text-decoration: none;
   border-radius: 12px;
   border: 1px solid #ff8e8d;
+}
+
+#search .search_basic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#search .search_basic .item_circle {
+  flex-basis: 126px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 26px;
+}
+
+#search .search_basic .item_circle .prof_image {
+  display: block;
+  width: 126px;
+  height: 126px;
+  background: url(./img/mio_3.jpg) no-repeat center/126px auto;
+  border-radius: 50%;
+}
+
+#search .search_basic .item_circle .status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 36px;
+}
+
+#search .search_basic .item_circle .status .primaly {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#search .search_basic .item_circle .status .secondaly {
+  color: #999;
+  font-size: 10px;
+  margin-top: 6px;
 }

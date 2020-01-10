@@ -330,8 +330,6 @@ strong, b {
   flex-basis: 126px;
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
-  overflow: hidden;
   filter: drop-shadow(0px 4px 2px rgba(155, 155, 155, 0.5));
 }
 
@@ -340,6 +338,7 @@ strong, b {
   width: 126px;
   height: 126px;
   background: url(./img/mio_3.jpg) no-repeat center/126px auto;
+  border-radius: 5px 5px 0 0;
 }
 
 #search .search_recommend .item_square .btn_wrap {
@@ -348,6 +347,7 @@ strong, b {
   justify-content: center;
   height: 36px;
   background-color: #fff;
+  border-radius: 0 0 5px 5px;
 }
 
 #search .search_recommend .item_square .btn_wrap .btn_show_profile {

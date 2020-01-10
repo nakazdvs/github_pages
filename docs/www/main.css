@@ -170,12 +170,12 @@ strong, b {
   opacity: 1;
 }
 
-#container_navigation .container_navigation_body .navigation_sub.fullscreen {
+#container_navigation .container_navigation_body .navigation_sub.is_fullscreen {
   width: 500px;
   height: 400px;
 }
 
-#container_navigation .container_navigation_body .navigation_sub .fullscreen {
+#container_navigation .container_navigation_body .navigation_sub .on_fullscreen {
   display: block;
   position: absolute;
   top: 5px;
@@ -189,7 +189,7 @@ strong, b {
   background-size: 24px;
 }
 
-#container_navigation .container_navigation_body .navigation_sub .fullscreen.exit {
+#container_navigation .container_navigation_body .navigation_sub .on_fullscreen.exit {
   background-image: url(./img/fullscreen_exit.png);
 }
 
@@ -403,7 +403,7 @@ strong, b {
   margin-top: 6px;
 }
 
-#search .search_basic .search_recent_entry_container {
+#search .search_basic .recent_entry_container {
   flex-basis: 100%;
   padding: 16px 20px;
   border-radius: 8px;
@@ -412,23 +412,23 @@ strong, b {
   margin: 6px 0 32px;
 }
 
-#search .search_basic .search_recent_entry_container .search_recent_entry_label {
+#search .search_basic .recent_entry_container .recent_entry_label {
   font-size: 18px;
 }
 
-#search .search_basic .search_recent_entry_container .search_recent_entry_wrap {
+#search .search_basic .recent_entry_container .recent_entry_wrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 12px;
 }
 
-#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s {
+#search .search_basic .recent_entry_container .recent_entry_wrap .item_circle_s {
   flex-basis: 80px;
   text-align: center;
 }
 
-#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s .prof_image {
+#search .search_basic .recent_entry_container .recent_entry_wrap .item_circle_s .prof_image {
   display: block;
   width: 84px;
   height: 84px;
@@ -436,7 +436,7 @@ strong, b {
   border-radius: 50%;
 }
 
-#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s .status {
+#search .search_basic .recent_entry_container .recent_entry_wrap .item_circle_s .status {
   font-size: 12px;
   font-weight: bold;
   margin-top: 4px;

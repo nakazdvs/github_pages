@@ -18,7 +18,7 @@
 			<li class="list_item"><a href="" title="募集" class="list_item_icon bbs"></a></li>
 			<li class="list_item"><a href="" title="マイページ" class="list_item_icon my"></a></li>
 			<li class="list_item"><a href="#" title="その他コンテンツ" class="list_item_icon contents"></a>
-				<div class="navigation_sub"><a href="#" class="fullscreen"></a>
+				<div class="navigation_sub"><a href="#" class="on_fullscreen"></a>
 					<div class="navigation_sub_scrollbody">
 						<ul class="navigation_sub_body">
 							<li class="sub_list_item"><a href="" class="sub_list_item_icon community">コミュニティ</a></li>
@@ -108,11 +108,7 @@
 							</dl>
 						</div>
 						<div class="item_circle">
-							<span class="prof_image"></span>
-							<dl class="status">
-								<dt class="primaly">23歳 東京</dt>
-								<dd class="secondaly">技術者/コンピューター関連</dd>
-							</dl>
+							<img src="./img/banner_tsubuyaki.png" width="100%">
 						</div>
 						<div class="item_circle">
 							<span class="prof_image"></span>
@@ -157,9 +153,9 @@
 							</dl>
 						</div>
 
-						<div class="search_recent_entry_container">
-							<div class="search_recent_entry_label"><strong>登録したばかりのお相手</strong></div>
-							<div class="search_recent_entry_wrap">
+						<div class="recent_entry_container">
+							<div class="recent_entry_label"><strong>登録したばかりのお相手</strong></div>
+							<div class="recent_entry_wrap">
 								<div class="item_circle_s">
 									<span class="prof_image"></span>
 									<div class="status">23歳 東京</div>
@@ -202,11 +198,7 @@
 							</dl>
 						</div>
 						<div class="item_circle">
-							<span class="prof_image"></span>
-							<dl class="status">
-								<dt class="primaly">23歳 東京</dt>
-								<dd class="secondaly">技術者/コンピューター関連</dd>
-							</dl>
+							<img src="./img/banner_tsubuyaki.png" width="100%">
 						</div>
 						<div class="item_circle">
 							<span class="prof_image"></span>
@@ -310,6 +302,9 @@
 	window.addEventListener('orientationchange',function(){
 		wrapper.style.height = window.innerHeight + 'px';
 	})
+	window.addEventListener('resize',function(){
+		wrapper.style.height = window.innerHeight + 'px';
+	})
 }());
 (function(){
 	const contents = document.querySelector('.list_item_icon.contents')
@@ -318,10 +313,10 @@
 		e.preventDefault()
 		navigation_sub.classList.toggle('open')
 	})
-	const fullscreen = document.querySelector('.navigation_sub .fullscreen')
+	const fullscreen = document.querySelector('.navigation_sub .on_fullscreen')
 	fullscreen.addEventListener('click',function(e){
 		e.preventDefault()
-		navigation_sub.classList.toggle('fullscreen')
+		navigation_sub.classList.toggle('is_fullscreen')
 		this.classList.toggle('exit')
 	})
 }());

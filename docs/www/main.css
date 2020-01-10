@@ -402,3 +402,42 @@ strong, b {
   font-size: 10px;
   margin-top: 6px;
 }
+
+#search .search_basic .search_recent_entry_container {
+  flex-basis: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background-color: #fff;
+  filter: drop-shadow(0px 2px 6px rgba(155, 155, 155, 0.5));
+  margin: 6px 0 32px;
+}
+
+#search .search_basic .search_recent_entry_container .search_recent_entry_label {
+  font-size: 18px;
+}
+
+#search .search_basic .search_recent_entry_container .search_recent_entry_wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s {
+  flex-basis: 80px;
+  text-align: center;
+}
+
+#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s .prof_image {
+  display: block;
+  width: 84px;
+  height: 84px;
+  background: url(./img/mio_3.jpg) no-repeat center/84px auto;
+  border-radius: 50%;
+}
+
+#search .search_basic .search_recent_entry_container .search_recent_entry_wrap .item_circle_s .status {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 4px;
+}

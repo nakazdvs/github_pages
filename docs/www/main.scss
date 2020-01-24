@@ -1,5 +1,36 @@
 @import './node_modules/reset-css/sass/reset';
 
+//グレー・黒
+$baseFontColor: #333;
+$baseFontColor_gray: #666;
+$baseFontColor_warmgray: #9b9b9b;
+$baseFontColor_lightgray: #7f7f7f;
+$defaultBackgroundColor: #f3f3f3;
+$defaultBorderColor: #e6e6e6;
+
+//青
+$baseColor_globalblue: #00aaed;
+$baseColor_azure: #00a0c0;
+$baseColor_azureTwo: #009cff;
+$baseLinkColor_blue: #009cff;
+$baseColor_tealish: #24b2ce;
+$baseColor_darkSkyblue: #37b9f2;
+$baseColor_skyblue: #82cee5;
+$baseColor_lightblue: #42ace1;
+$baseColor_turquoiseblue: #10afcf;
+
+//ピンク・赤
+$baseColor_peacypink: #ff8e8d;
+$baseColor_pinkred: #ff0059;
+$baseColor_notifer: #f55656;
+$baseLinkColor_scarlet: #d0021b;
+
+//オレンジ
+$baseColor_mango: #ffad25;
+
+//グリーン
+$baseColor_turtlegreen: #83c44e;
+
 body {
 	font-family: 'ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','HiraKakuProN-W3';
 	color: #333;
@@ -318,4 +349,226 @@ strong,b {
 		}
 	}
 	
+}
+
+#message {
+	position: relative;
+	overflow-x: hidden;
+	.message_header_nav .nav_list_wrap {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		height: 32px;
+		border-bottom: 1px solid #ccc;
+		.nav_list_item {
+			flex-basis: 211px;
+			//transform: translateY(1px);
+			.nav_list_link {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 30px;
+				color: $baseFontColor_warmgray;
+				font-size: 14px;
+				font-weight: bold;
+				text-decoration: none;
+				&.on,
+				&:hover {
+					color: $baseColor_peacypink;
+					border-bottom: 2px solid $baseColor_peacypink;
+				}
+			}
+		}
+	}
+	.message_header_tab {
+		padding: 16px 0;
+		.tab_list_wrap {
+			display: flex;
+			align-items: stretch;
+			justify-content: space-between;
+			height: 26px;
+			.tab_list_item {
+				flex-basis: 211px;
+				.tab_list_link {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					height: 100%;
+					color: $baseColor_tealish;
+					font-size: 14px;
+					font-weight: bold;
+					text-decoration: none;
+					&.on,
+					&:hover {
+						color: #fff;
+						background-color: $baseColor_tealish;
+						border-radius: 5px;
+					}
+				}
+			}
+		}
+	}
+	.message_message_list {
+		//position: relative;
+		.message_list_wrap {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			.message_list_link {
+				display: flex;
+				color: $baseFontColor_gray;
+				text-decoration: none;
+				border-bottom: 1px solid #ccc;
+				padding: 12px 0;
+				.thumb {
+					flex-basis: 77px;
+					.thumb_icon {
+						display: block;
+						width: 77px;
+						height: 77px;
+						background: url(./img/mio_3.jpg) no-repeat center / 77px auto;
+						border-radius: 50%;
+					}
+				}
+				.body {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					align-items: stretch;
+					padding-left: 12px;
+					.name_wrap {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						.name {
+							font-size: 14px;
+						}
+						time {
+							color: $baseFontColor_warmgray;
+							font-size: 12px;
+						}
+					}
+					.message_status {
+						flex: 1;
+						display: flex;
+						align-items: center;
+						p {
+							color: $baseFontColor_lightgray;
+							font-size: 13px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.slidein_container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 663px;
+		height: 500px;
+		transform: translateX(663px);
+		transition: .2s;
+		&.slidein {
+			transform: translateX(0);
+		}
+	}
+	.message_history_container {
+		.history_header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 42px;
+			padding: 0 12px;
+			background-color: #4fc3f7;
+			.back {
+				display: block;
+				width: 24px;
+				height: 24px;
+				background: url(./img/arrow_back.png) no-repeat center / 24px;
+			}
+			.name {
+				display: flex;
+				align-items: center;
+				margin: auto;
+				.thumb_icon {
+					display: inline-block;
+					width: 24px;
+					height: 24px;
+					background: url(./img/mio_3.jpg) no-repeat center / 24px auto;
+					border-radius: 50%;
+					margin-right: 6px;
+				}
+				> strong {
+					color: #fff;
+					font-size: 16px;
+				}
+			}
+		}
+		.history_wrap {
+			display: flex;
+			flex-direction: column;
+			background-color: #eee;
+			padding: 20px 12px 30px;
+			.send_item {
+				align-self: flex-end;
+				display: flex;
+				flex-direction: row-reverse;
+				margin-top: 16px;
+				.massage_body {
+					max-width: 440px;
+					background-color: $baseLinkColor_blue;
+					border-radius: 16px 0 16px 16px;
+					> p {
+						color: #fff;
+						font-size: 13px;
+						line-height: 1.6;
+						padding: 12px;
+					}
+				}
+				.receive_at {
+					align-self: flex-end;
+					margin-right: 6px;
+					> time {
+						color: $baseFontColor_warmgray;
+						font-size: 10px;
+					}
+				}
+			}
+			.receive_item {
+				align-self: flex-start;
+				display: flex;
+				.thumb {
+					flex-basis: 60px;
+					.thumb_icon {
+						display: block;
+						width: 60px;
+						height: 60px;
+						background: url(./img/mio_3.jpg) no-repeat center / 60px auto;
+						border-radius: 50%;
+					}
+				}
+				.massage_body {
+					max-width: 440px;
+					margin-top: 16px;
+					margin-left: 12px;
+					background-color: #fff;
+					border-radius: 0 16px 16px 16px;
+					> p {
+						font-size: 13px;
+						line-height: 1.6;
+						padding: 12px;
+					}
+				}
+				.receive_at {
+					align-self: flex-end;
+					margin-left: 6px;
+					> time {
+						color: $baseFontColor_warmgray;
+						font-size: 10px;
+					}
+				}
+			}
+		}
+	}
 }

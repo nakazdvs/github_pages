@@ -441,3 +441,256 @@ strong, b {
   font-weight: bold;
   margin-top: 4px;
 }
+
+#message {
+  position: relative;
+  overflow-x: hidden;
+}
+
+#message .message_header_nav .nav_list_wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 32px;
+  border-bottom: 1px solid #ccc;
+}
+
+#message .message_header_nav .nav_list_wrap .nav_list_item {
+  flex-basis: 211px;
+}
+
+#message .message_header_nav .nav_list_wrap .nav_list_item .nav_list_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  color: #9b9b9b;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#message .message_header_nav .nav_list_wrap .nav_list_item .nav_list_link.on, #message .message_header_nav .nav_list_wrap .nav_list_item .nav_list_link:hover {
+  color: #ff8e8d;
+  border-bottom: 2px solid #ff8e8d;
+}
+
+#message .message_header_tab {
+  padding: 16px 0;
+}
+
+#message .message_header_tab .tab_list_wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 26px;
+}
+
+#message .message_header_tab .tab_list_wrap .tab_list_item {
+  flex-basis: 211px;
+}
+
+#message .message_header_tab .tab_list_wrap .tab_list_item .tab_list_link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #24b2ce;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#message .message_header_tab .tab_list_wrap .tab_list_item .tab_list_link.on, #message .message_header_tab .tab_list_wrap .tab_list_item .tab_list_link:hover {
+  color: #fff;
+  background-color: #24b2ce;
+  border-radius: 5px;
+}
+
+#message .message_message_list .message_list_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link {
+  display: flex;
+  color: #666;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .thumb {
+  flex-basis: 77px;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .thumb .thumb_icon {
+  display: block;
+  width: 77px;
+  height: 77px;
+  background: url(./img/mio_3.jpg) no-repeat center/77px auto;
+  border-radius: 50%;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-left: 12px;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body .name_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body .name_wrap .name {
+  font-size: 14px;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body .name_wrap time {
+  color: #9b9b9b;
+  font-size: 12px;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body .message_status {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#message .message_message_list .message_list_wrap .message_list_link .body .message_status p {
+  color: #7f7f7f;
+  font-size: 13px;
+}
+
+#message .slidein_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 663px;
+  height: 500px;
+  transform: translateX(663px);
+  transition: .2s;
+}
+
+#message .slidein_container.slidein {
+  transform: translateX(0);
+}
+
+#message .message_history_container .history_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+  padding: 0 12px;
+  background-color: #4fc3f7;
+}
+
+#message .message_history_container .history_header .back {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url(./img/arrow_back.png) no-repeat center/24px;
+}
+
+#message .message_history_container .history_header .name {
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+#message .message_history_container .history_header .name .thumb_icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url(./img/mio_3.jpg) no-repeat center/24px auto;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+#message .message_history_container .history_header .name > strong {
+  color: #fff;
+  font-size: 16px;
+}
+
+#message .message_history_container .history_wrap {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  padding: 20px 12px 30px;
+}
+
+#message .message_history_container .history_wrap .send_item {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 16px;
+}
+
+#message .message_history_container .history_wrap .send_item .massage_body {
+  max-width: 440px;
+  background-color: #009cff;
+  border-radius: 16px 0 16px 16px;
+}
+
+#message .message_history_container .history_wrap .send_item .massage_body > p {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px;
+}
+
+#message .message_history_container .history_wrap .send_item .receive_at {
+  align-self: flex-end;
+  margin-right: 6px;
+}
+
+#message .message_history_container .history_wrap .send_item .receive_at > time {
+  color: #9b9b9b;
+  font-size: 10px;
+}
+
+#message .message_history_container .history_wrap .receive_item {
+  align-self: flex-start;
+  display: flex;
+}
+
+#message .message_history_container .history_wrap .receive_item .thumb {
+  flex-basis: 60px;
+}
+
+#message .message_history_container .history_wrap .receive_item .thumb .thumb_icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: url(./img/mio_3.jpg) no-repeat center/60px auto;
+  border-radius: 50%;
+}
+
+#message .message_history_container .history_wrap .receive_item .massage_body {
+  max-width: 440px;
+  margin-top: 16px;
+  margin-left: 12px;
+  background-color: #fff;
+  border-radius: 0 16px 16px 16px;
+}
+
+#message .message_history_container .history_wrap .receive_item .massage_body > p {
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 12px;
+}
+
+#message .message_history_container .history_wrap .receive_item .receive_at {
+  align-self: flex-end;
+  margin-left: 6px;
+}
+
+#message .message_history_container .history_wrap .receive_item .receive_at > time {
+  color: #9b9b9b;
+  font-size: 10px;
+}

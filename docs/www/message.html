@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>無題ドキュメント</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<link href="./main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="container_wrapper">
+	<nav id="container_navigation">
+		<ul class="container_navigation_body">
+			<li class="list_item"><a href="" title="YYC top" class="list_item_icon top"></a></li>
+			<li class="list_item"><a href="" title="検索" class="list_item_icon search"></a></li>
+			<li class="list_item"><a href="" title="メッセージ" class="list_item_icon message"></a></li>
+			<li class="list_item"><a href="" title="つぶやき" class="list_item_icon tsubuyaki"></a></li>
+			<li class="list_item"><a href="" title="募集" class="list_item_icon bbs"></a></li>
+			<li class="list_item"><a href="" title="マイページ" class="list_item_icon my"></a></li>
+			<li class="list_item"><a href="#" title="その他コンテンツ" class="list_item_icon contents"></a>
+				<div class="navigation_sub"><a href="#" class="on_fullscreen"></a>
+					<div class="navigation_sub_scrollbody">
+						<ul class="navigation_sub_body">
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon community">コミュニティ</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon photocon">フォトコンテスト</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon photoalbum">フォトアルバム</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon gourmet">グルメデート</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon diary">みんなの日記</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon iine">みんなのイイネ！</a></li>
+							<li class="sub_list_item"><a href="" class="sub_list_item_icon timeline">タイムライン</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</nav>
+	<div id="container_main">
+		<div class="container_main_header">
+			<div class="logo"><span title="return top" class="icon" data-scroll></span></div>
+			<ul class="tool">
+				<li class="item"><a href="" title="足あと" class="item_icon footprint"></a></li>
+				<li class="item"><a href="" title="通知" class="item_icon notify"></a></li>
+			</ul>
+		</div>
+		<div class="container_main_scrollbody">
+			<span id="top"></span>
+			<main class="main_body" id="message">
+				
+				<nav class="message_header_nav">
+				<ul class="nav_list_wrap">
+					<li class="nav_list_item"><a href="#" class="nav_list_link on">送受信</a></li>
+					<li class="nav_list_item"><a href="#" class="nav_list_link">やりとり履歴</a></li class="nav_item">
+					<li class="nav_list_item"><a href="#" class="nav_list_link">ボトルメール</a></li class="nav_item">
+				</ul>
+				</nav>
+
+				<div class="message_header_tab">
+					<ul class="tab_list_wrap">
+						<li class="tab_list_item"><a href="#" class="tab_list_link on">新着順</a></li>
+						<li class="tab_list_item"><a href="#" class="tab_list_link">出会った順</a></li class="tab_list_item">
+						<li class="tab_list_item"><a href="#" class="tab_list_link">未開封のみ</a></li>
+					</ul>
+				</div>
+
+
+				<div id="vueMessageList" class="message_message_list">
+					<ul class="message_list_wrap">
+						<li class="message_list_item"><router-link :to="{name: 'msg', params: {id: 'Nakaz', name: '美桜1'} }" class="message_list_link">
+							<div class="delete"></div>
+							<div class="thumb"><span class="thumb_icon"></span></div>
+							<dl class="body">
+								<dt class="name_wrap"><span class="name">美桜(っ･ω･) (22) 東京都</span><time>11-19 17:10</time></dt>
+								<dd class="message_status"><p>気になってメッセージを送ってみました。よければやり取りしませんか？</p></dd>
+							</dl>
+						</router-link></li>
+						<li class="message_list_item"><router-link :to="{name: 'msg', params: {id: 'Yametaro', name: '美桜2'} }" class="message_list_link">
+							<div class="delete"></div>
+							<div class="thumb"><span class="thumb_icon"></span></div>
+							<dl class="body">
+								<dt class="name_wrap"><span class="name">美桜(っ･ω･) (22) 東京都</span><time>11-19 17:10</time></dt>
+								<dd class="message_status"><p>気になってメッセージを送ってみました。よければやり取りしませんか？</p></dd>
+							</dl>
+						</router-link></li>
+					</ul>
+					<router-view></router-view>
+					
+				</div>
+
+				<!--div class="message_history_container">
+
+					<div class="history_wrap">
+
+						<div class="receive_item">
+							<div class="thumb"><span class="thumb_icon"></span></div>
+							<div class="massage_body"><p>こんにちはー！<br>
+							プロフィールを見ていいなーって思ったのでメールしました。<br>
+							画面遷移した時はキーボードは非表示で<br>
+							</p></div>
+							<div class="receive_at"><time>01-22 22:38</time></div>
+						</div>
+
+						<div class="receive_item">
+							<div class="thumb"><span class="thumb_icon"></span></div>
+							<div class="massage_body"><p>メールちょーだいね？<br>
+								プロフィールを見ていいなーって思ったのでメールしました。プロフィールを見ていいなーって思ったのでメールしました。プロフィールを見ていいなーって思ったのでメールしました。
+							</p></div>
+							<div class="receive_at"><time>01-22 22:38</time></div>
+						</div>
+
+						<div class="send_item">
+							<div class="massage_body"><p>奈々実さんはどんな人がタイプでしょうか？<br>
+							年上でもOKでしょうか？</p></div>
+							<div class="receive_at"><time>01-22 22:38</time></div>
+						</div>
+
+						<div class="send_item">
+							<div class="massage_body"><p>奈々実さんはどんな人がタイプでしょうか？<br>
+							年上でもOKでしょうか？<br>
+							年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？</p></div>
+							<div class="receive_at"><time>01-22 22:38</time></div>
+						</div>
+
+					</div>
+
+
+				<div--><!--/message_history_container-->
+			
+			</main>
+		</div>
+</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<script>
+'use strict';
+
+/*
+const User = {
+	template: `<div>User {{$route.query.id}}</div>`
+}
+*/
+
+const User = {
+	data() {
+		return {
+			response: "",
+			slideIn: false
+		}
+	},
+	props: {
+		id: {
+			type: String,
+		},
+		name: {
+			type: String,
+		},
+	},
+	/*
+	template: `<div class="slidein_container" :class="slideInOut">
+		<div><a href="#" @click.stop="back">戻る</a></div>
+		<div><router-link to="/">router-link</router-link></div>
+		User {{id}}<br><pre>{{setResponse}}</pre>
+	</div>`,
+	*/
+	template: `
+	<div class="message_history_container slidein_container":class="slideInOut">
+	<div class="history_header">
+		<a href="#" @click.stop="back" class="back" title="戻る"></a>
+		<div class="name"><span class="thumb_icon"></span><strong>{{name}}</strong></div>
+		<ul>
+			<li><a href="#" class="manner" title="マナー返信"></a></li>
+			<li><a href="#" class="menu" title="メニュー"></a></li>
+		</ul>
+	</div>
+	<div class="history_wrap">
+
+		<div class="receive_item">
+			<div class="thumb"><span class="thumb_icon"></span></div>
+			<div class="massage_body"><p>こんにちはー！<br>
+			プロフィールを見ていいなーって思ったのでメールしました。<br>
+			画面遷移した時はキーボードは非表示で<br>
+			</p></div>
+			<div class="receive_at"><time>01-22 22:38</time></div>
+		</div>
+
+		<div class="receive_item">
+			<div class="thumb"><span class="thumb_icon"></span></div>
+			<div class="massage_body"><p>メールちょーだいね？<br>
+				プロフィールを見ていいなーって思ったのでメールしました。プロフィールを見ていいなーって思ったのでメールしました。プロフィールを見ていいなーって思ったのでメールしました。
+			</p></div>
+			<div class="receive_at"><time>01-22 22:38</time></div>
+		</div>
+
+		<div class="send_item">
+			<div class="massage_body"><p>奈々実さんはどんな人がタイプでしょうか？<br>
+			年上でもOKでしょうか？</p></div>
+			<div class="receive_at"><time>01-22 22:38</time></div>
+		</div>
+
+		<div class="send_item">
+			<div class="massage_body"><p>奈々実さんはどんな人がタイプでしょうか？<br>
+			年上でもOKでしょうか？<br>
+			年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？年上でもOKでしょうか？</p></div>
+			<div class="receive_at"><time>01-22 22:38</time></div>
+		</div>
+
+	</div>
+	</div>
+	`,
+	computed: {
+		setResponse() {
+			return this.response
+		},
+		slideInOut() {
+			return {
+				slidein: this.slideIn,
+			}
+		}
+	},
+	mounted() {
+		this.call()
+	},
+	watch: {
+		'$route'(to,from) {
+			this.call()
+		}
+	},
+	methods: {
+		delaySlideIn() {
+			const slideIn = setTimeout(() => {
+				this.slideIn = true
+				clearTimeout(slideIn)
+			},10)
+		},
+		call() {
+			/*
+			const XHR = new XMLHttpRequest()
+			XHR.open('get','https://qiita.com/api/v2/users/' + this.id)
+			XHR.responseType = "json"
+			XHR.addEventListener('load',() => {
+				this.response = XHR.response.description
+				console.log(XHR.response)
+			})
+			XHR.send()
+			*/
+			//const slidein_container = document.querySelector('.slidein_container')
+			//slidein_container.classList.add('slidein')
+			this.response = this.id
+			this.delaySlideIn()
+			console.log(this.id)
+		},
+		back() {
+			this.slideIn = false
+			const routerDestroy = setTimeout(() => {
+				router.push('/')
+				clearTimeout(routerDestroy)
+			},220)
+		}
+	}
+}
+
+const router = new VueRouter({
+	routes: [
+		//{path: '/user/:id', component: User, props: true}
+		//{path: '/history/?id=:id', name: 'msg', component: User, props: route => ({id: route.params.id})}
+		{path: '/history/?id=:id', name: 'msg', component: User, props: true}
+	]
+})
+
+const vueMessageList = new Vue({
+	el: "#vueMessageList",
+	router
+})
+
+</script>
+
+<script src="./js/moveTo.min.js"></script>
+<script>
+'use strict';
+(function(){
+	const wrapper = document.getElementById('container_wrapper');
+	wrapper.style.height = window.innerHeight + 'px';
+	window.addEventListener('orientationchange',function(){
+		wrapper.style.height = window.innerHeight + 'px';
+	})
+	window.addEventListener('resize',function(){
+		wrapper.style.height = window.innerHeight + 'px';
+	})
+}());
+(function(){
+	const contents = document.querySelector('.list_item_icon.contents')
+	const navigation_sub = document.querySelector('.navigation_sub')
+	contents.addEventListener('click',function(e){
+		e.preventDefault()
+		navigation_sub.classList.toggle('open')
+	})
+	const fullscreen = document.querySelector('.navigation_sub .on_fullscreen')
+	fullscreen.addEventListener('click',function(e){
+		e.preventDefault()
+		navigation_sub.classList.toggle('is_fullscreen')
+		this.classList.toggle('exit')
+	})
+}());
+(function(){
+	var datascroll = document.querySelector('[data-scroll]')
+	var container_main_scrollbody = document.querySelector('.container_main_scrollbody')
+	datascroll.addEventListener('click',function(){
+		const scroll = container_main_scrollbody.scrollTop
+		const moveTo = new MoveTo({
+			duration: 300,
+			container:container_main_scrollbody
+		})
+		moveTo.move(-scroll)
+	})
+}());
+</script>
+</body>
+</html>

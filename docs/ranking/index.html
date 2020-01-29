@@ -19,21 +19,64 @@
 </ul>
 </div>
 
-<div id="vueRankingTopContent" class="ranking-main_container set-bg_basic">
 
-<card-list-container
+<div class="ranking-main_container set-bg_basic">
+
+<div id="vueRankingTopContentRecent" class="ranking-top_content"
+	data-object='[
+		{"id": 1, "name": "美桜1", "image": "./img/mio.jpg", "vote_count": 123, "vote": 1},
+		{"id": 2, "name": "美桜2", "image": "./img/mio.jpg", "vote_count": 123, "vote": 0},
+		{"id": 3, "name": "美桜3", "image": "./img/mio.jpg", "vote_count": 123, "vote": 1},
+		{"id": 4, "name": "美桜4", "image": "./img/mio.jpg", "vote_count": 123, "vote": 0}
+	]'>
+	<content-header>
+		<template #header-label>月刊ランキング<small class="sub">(年代別)</small></template>
+		<template #header-link>
+			<sort-age @emit-sort="emitSort">20代〜30代前半</sort-age>
+			<sort-list ref="sort"></sort-list>
+		</template>
+	</content-header>
+	<div class="card_list_wrap">
+		<card-item-l v-for="obj in object" :obj="obj" :key="obj.id" @emit-vote="emitVote"></card-item-l>
+	</div>
+</div>
+
+<div id="vueRankingTopContentToday" class="ranking-top_content"
+	data-object='[
+		{"id": 1, "name": "美桜1", "image": "./img/mio.jpg", "vote_count": 123},
+		{"id": 2, "name": "美桜2", "image": "./img/mio.jpg", "vote_count": 123},
+		{"id": 3, "name": "美桜3", "image": "./img/mio.jpg", "vote_count": 123},
+		{"id": 4, "name": "美桜4", "image": "./img/mio.jpg", "vote_count": 123},
+		{"id": 3, "name": "美桜3", "image": "./img/mio.jpg", "vote_count": 123},
+		{"id": 4, "name": "美桜4", "image": "./img/mio.jpg", "vote_count": 123}
+	]'>
+	<content-header>
+		<template #header-label>24時間ランキング</template>
+		<template #header-link>
+			<more-link url="/hoge2"></more-link>
+		</template>
+	</content-header>
+	<div class="card_list_wrap">
+		<card-item-S v-for="obj in object" :obj="obj" :key="obj.id"></card-item-S>
+	</div>
+</div>
+
+<!--card-list-container
 	:object="[
 		{id: 1, name: '美桜1', image: './img/mio.jpg', vote_count: 123, vote: 1},
 		{id: 2, name: '美桜2', image: './img/mio.jpg', vote_count: 82, vote: 0},
 		{id: 3, name: '美桜3', image: './img/mio.jpg', vote_count: 29, vote: 0},
 		{id: 4, name: '美桜4', image: './img/mio.jpg', vote_count: 1190, vote: 0},
 	]"
-	url="/hoge1"
-	list-type="card-l"
-	@emit-vote="emitVote"
 >
-<test-component></test-component>
-<template #label>新着エントリー<small class="sub">(年代別)</small></template>
+<template #header-label>新着エントリー<small class="sub">(年代別)</small></template>
+<template #header-link>
+	<sort-age @sort="sort">20代〜30代前半</sort-age>
+	<sort-list></sort-list>
+</template>
+<template #card-item="slotProps">
+	<card-item-l :slot-props="slotProps" v-for="obj in slotProps.object" :obj="obj" :key="obj.id"></card-item-l>
+</template>
 </card-list-container>
 
 <card-list-container
@@ -45,12 +88,15 @@
 		{id: 5, name: '美桜5-1', image: './img/mio.jpg', vote_count: 29, vote: 0},
 		{id: 6, name: '美桜6-1', image: './img/mio.jpg', vote_count: 1190, vote: 0},
 	]"
-	url="/hoge2"
-	list-type="card-s"
-	@emit-vote="emitVote"
 >
-<template v-slot:label>月刊ランキング<small class="sub">(年代別)</small></template>
-</card-list-container>
+<template #header-label>月刊ランキング<small class="sub">(年代別)</small></template>
+<template #header-link>
+	<more-link url="/hoge2"></more-link>
+</template>
+<template #card-item="slotProps">
+	<card-item-S :slot-props="slotProps" v-for="obj in slotProps.object" :obj="obj" :key="obj.id"></card-item-S>
+</template>
+</card-list-container-->
 
 </div><!--/vueRankingTopContent-->
 
@@ -60,10 +106,12 @@
 <script type="module">
 'use strict'
 
-import {testComponent} from './js/common.js'
+//import {testComponent} from './js/common.js'
 
 const cardItemL = Vue.extend({
-	props: ["obj"],
+	props: {
+		obj: Object
+	},
 	template: `
 		<a href="#" class="card_list_l" @click.prevent>
 			<div class="photo" :style="setImage"></div>
@@ -91,8 +139,11 @@ const cardItemL = Vue.extend({
 		}
 	}
 })
+
 const cardItemS = Vue.extend({
-	props: ["obj"],
+	props: {
+		obj: Object
+	},
 	template: `
 		<a href="#" class="card_list_s" @click.prevent>
 			<div class="photo" :style="setImage"></div>
@@ -108,86 +159,154 @@ const cardItemS = Vue.extend({
 	},
 })
 
-/*
-const testComp = Vue.component('test-component',{
-	template: `<div>ぐろーばるこんぽね</div>`
+const moreLink = Vue.extend({
+	props: {
+		url: String
+	},
+	template: `<a :href="url" class="more_link">もっとみる</a>`
 })
-*/
 
-const cardListContainer = Vue.extend({
-	props: ["object","url","list-type"],
-	data() {
-		return {
-			listType: this.viewcomp
-		}
-	},
-	components: {
-		'card-l': cardItemL,
-		'card-s': cardItemS,
-	},
+const sortAge = Vue.extend({
 	template: `
-		<div class="ranking-top_content">
-			<dl class="header">
-				<dt class="label"><strong><slot name="label"></slot></strong></dt>
-				<dd class="more"><a :href="url" class="more_link">もっと見る</a></dd>
-			</dl>
-			<slot></slot>
-			<div class="card_list_wrap">
-				<component :is="listType" v-for="obj in object" :obj="obj" :key="obj.id" @emit-vote="emitVote"></component>
-			</div>
-		</div>`
-	,
+		<span class="sort_age" @click="onSort"><slot></slot></span>
+	`,
 	methods: {
-		emitVote(id) {
-			this.$emit('emit-vote',id)
+		onSort() {
+			this.$emit('emit-sort')
 		}
 	}
 })
 
-/*
-const cardListContainer = Vue.extend({
-	props: ["object","url","viewcomp"],
+const sortList = Vue.extend({
 	data() {
 		return {
-			view: this.viewcomp
+			open: false
 		}
 	},
-	components: {
-		cardItemL,
-		'child1': slotChildComp1,
-		'child2': slotChildComp2,
-	},
 	template: `
-		<div class="ranking-top_content">
-			<dl class="header">
-				<dt class="label"><strong><slot name="label"></slot></strong></dt>
-				<dd class="more"><a :href="url" class="more_link">もっと見る</a></dd>
-			</dl>
-				<component :is="view" :obj="object"></component>
-			<div class="card_list_wrap">
-				<card-item-l v-for="obj in object" :obj="obj" :key="obj.id" @emit-vote="emitVote"></card-item-l>
-			</div>
-		</div>`
-	,
+		<transition>
+		<ul class="ranking-mdl_sort_list" v-show="isOpen">
+			<li class="list_item"><a href="#" class="list_item_link">すべて</a></li>
+			<li class="list_item"><a href="#" class="list_item_link">20代〜30代前半</a></li>
+			<li class="list_item"><a href="#" class="list_item_link">30代後半〜</a></li>
+		</ul>
+		</transition>
+	`,
+	computed: {
+		isOpen() {
+			return {
+				open: this.open
+			}
+		}
+	},
 	methods: {
-		emitVote(id) {
-			this.$emit('emit-vote',id)
+		openSort() {
+			this.open = true
 		}
 	}
 })
-*/
+
+const contentHeader = Vue.extend({
+	template: `
+		<dl class="header">
+			<dt class="label"><strong><slot name="header-label"></slot></strong></dt>
+			<dd class="more"><slot name="header-link"></slot></dd>
+		</dl>
+	`
+})
+
+const topContentMixin = {
+	components: {
+		contentHeader,
+		moreLink,
+	},
+	computed: {
+		object() {
+			return JSON.parse(this.$el.dataset.object)
+		}
+	},
+	mounted() {
+		this.$nextTick(()=>{
+			this.$el.removeAttribute('data-object')
+		})
+		
+	}
+}
 
 new Vue({
-	el: "#vueRankingTopContent",
+	el: "#vueRankingTopContentRecent",
+	mixins: [topContentMixin],
 	components: {
-		cardListContainer,
+		cardItemL,
+		sortAge,
+		sortList
+	},
+	mounted() {
+		console.log(this)
 	},
 	methods: {
 		emitVote(id) {
 			console.log(id)
+		},
+		emitSort() {
+			this.$refs.sort.openSort()
 		}
 	}
 })
+
+new Vue({
+	el: "#vueRankingTopContentToday",
+	mixins: [topContentMixin],
+	components: {
+		cardItemS
+	}
+})
+
+
+
+
+
+const cardListContainer = Vue.extend({
+	props: {
+		object: Object
+	},
+	template: `
+		<div class="ranking-top_content">
+			<dl class="header">
+				<dt class="label"><strong><slot name="header-label"></slot></strong></dt>
+				<dd class="more"><slot name="header-link"></slot></dd>
+			</dl>
+			<div class="card_list_wrap">
+				<slot name="card-item" :object="object"></slot>
+			</div>
+		</div>`
+	,
+	methods: {
+		
+		emitVote(id) {
+			this.$emit('emit-vote',id)
+		}
+	}
+})
+
+/*
+new Vue({
+	el: "#vueRankingTopContent",
+	components: {
+		cardListContainer,
+		moreLink,
+		sortAge,
+		sortList,
+		cardItemL,
+		cardItemS
+	},
+	mounted(){
+		console.log(this)
+	},
+	methods: {
+	}
+})
+*/
 </script>
 </body>
 </html>

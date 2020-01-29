@@ -2,6 +2,7 @@
   --base-color-white: #fff;
   --base-color-gray: #666;
   --base-color-warmgray: #9b9b9b;
+  --baes-border-color: #e6e6e6;
 }
 
 .set-bg_basic {
@@ -44,6 +45,41 @@
   border-bottom: 3px solid #ff8e8d;
 }
 
+.ranking-mdl_sort_list {
+  position: absolute;
+  top: 5.9vw;
+  right: 0;
+  z-index: 99;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+  width: 53.3vw;
+  border-radius: 4px;
+  background-color: var(--base-color-white);
+  -webkit-filter: drop-shadow(0px 0px 6px rgba(155, 155, 155, 0.5));
+          filter: drop-shadow(0px 0px 6px rgba(155, 155, 155, 0.5));
+}
+
+.ranking-mdl_sort_list .list_item:not(:last-child) {
+  border-bottom: 1px solid var(--baes-border-color);
+}
+
+.ranking-mdl_sort_list .list_item_link {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  height: 13.3vw;
+  font-size: 3.2vw;
+  padding-left: 4.3vw;
+}
+
 .ranking-main_container {
   padding: 6.4vw 4.3vw;
 }
@@ -72,6 +108,10 @@
   margin-left: 1.9vw;
 }
 
+.ranking-top_content .header .more {
+  position: relative;
+}
+
 .ranking-top_content .header .more .more_link {
   display: -webkit-inline-box;
   display: inline-flex;
@@ -79,10 +119,23 @@
           align-items: center;
   height: 6.4vw;
   color: inherit;
-  font-size: 3.2vw;
+  font-size: 3.5vw;
   font-weight: bold;
   padding-right: 6.4vw;
   background: url(../img/arrow_right.png) no-repeat right center/6.4vw;
+}
+
+.ranking-top_content .header .more .sort_age {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -webkit-box-align: center;
+          align-items: center;
+  height: 6.4vw;
+  color: inherit;
+  font-size: 3.5vw;
+  font-weight: bold;
+  padding-right: 6.4vw;
+  background: url(../img/triangle_open.svg) no-repeat right center/6.4vw;
 }
 
 .ranking-top_content .card_list_wrap {

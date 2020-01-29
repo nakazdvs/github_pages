@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>無題ドキュメント</title>
+<meta name="viewport" content="width=devise-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/ranking.css">
+</head>
+<body id="ranking">
+
+<div id="container" class="ranking">
+
+<div class="mdl-tab_navigation">
+<ul class="tab_navigation">
+<li class="tab_item"><a href="#" class="tab_item_link on">ランキング</a></li>
+<li class="tab_item"><a href="#" class="tab_item_link">エントリー</a></li>
+<li class="tab_item"><a href="#" class="tab_item_link">マイランク</a></li class="tab_item">
+</ul>
+</div>
+
+<div id="vueRankingTopContent" class="ranking-main_container set-bg_basic">
+
+<card-list-container
+	:object="[
+		{id: 1, name: '美桜1', image: './img/mio.jpg', vote_count: 123, vote: 1},
+		{id: 2, name: '美桜2', image: './img/mio.jpg', vote_count: 82, vote: 0},
+		{id: 3, name: '美桜3', image: './img/mio.jpg', vote_count: 29, vote: 0},
+		{id: 4, name: '美桜4', image: './img/mio.jpg', vote_count: 1190, vote: 0},
+	]"
+	url="/hoge1"
+	list-type="card-l"
+	@emit-vote="emitVote"
+>
+<test-component></test-component>
+<template #label>新着エントリー<small class="sub">(年代別)</small></template>
+</card-list-container>
+
+<card-list-container
+	:object="[
+		{id: 1, name: '美桜1-1', image: './img/mio.jpg', vote_count: 123, vote: 1},
+		{id: 2, name: '美桜2-1', image: './img/mio.jpg', vote_count: 82, vote: 0},
+		{id: 3, name: '美桜3-1', image: './img/mio.jpg', vote_count: 29, vote: 0},
+		{id: 4, name: '美桜4-1', image: './img/mio.jpg', vote_count: 1190, vote: 0},
+		{id: 5, name: '美桜5-1', image: './img/mio.jpg', vote_count: 29, vote: 0},
+		{id: 6, name: '美桜6-1', image: './img/mio.jpg', vote_count: 1190, vote: 0},
+	]"
+	url="/hoge2"
+	list-type="card-s"
+	@emit-vote="emitVote"
+>
+<template v-slot:label>月刊ランキング<small class="sub">(年代別)</small></template>
+</card-list-container>
+
+</div><!--/vueRankingTopContent-->
+
+</div><!--/container-->
+
+<script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
+<script type="module">
+'use strict'
+
+import {testComponent} from './js/common.js'
+
+const cardItemL = Vue.extend({
+	props: ["obj"],
+	template: `
+		<a href="#" class="card_list_l" @click.prevent>
+			<div class="photo" :style="setImage"></div>
+			<div class="status">
+				<div class="name"><strong>{{obj.name}}</strong></div>
+				<div class="action"><span @click.stop.prevent="onVote" class="heart" :class="isVote"></span><small class="votes">{{obj.vote_count}}票</small></div>
+			</div>
+		</a>
+	`,
+	computed: {
+		setImage() {
+			return `background-image:url(${this.obj.image})`
+		},
+		isVote() {
+			const vote = this.obj.vote == 1 ? true : false
+			return {
+				add: !vote,
+				done: vote
+			}
+		}
+	},
+	methods: {
+		onVote() {
+			this.$emit('emit-vote',this.obj.id)
+		}
+	}
+})
+const cardItemS = Vue.extend({
+	props: ["obj"],
+	template: `
+		<a href="#" class="card_list_s" @click.prevent>
+			<div class="photo" :style="setImage"></div>
+			<div class="status">
+				<div class="name"><strong>{{obj.name}}</strong></div>
+			</div>
+		</a>
+	`,
+	computed: {
+		setImage() {
+			return `background-image:url(${this.obj.image})`
+		}
+	},
+})
+
+/*
+const testComp = Vue.component('test-component',{
+	template: `<div>ぐろーばるこんぽね</div>`
+})
+*/
+
+const cardListContainer = Vue.extend({
+	props: ["object","url","list-type"],
+	data() {
+		return {
+			listType: this.viewcomp
+		}
+	},
+	components: {
+		'card-l': cardItemL,
+		'card-s': cardItemS,
+	},
+	template: `
+		<div class="ranking-top_content">
+			<dl class="header">
+				<dt class="label"><strong><slot name="label"></slot></strong></dt>
+				<dd class="more"><a :href="url" class="more_link">もっと見る</a></dd>
+			</dl>
+			<slot></slot>
+			<div class="card_list_wrap">
+				<component :is="listType" v-for="obj in object" :obj="obj" :key="obj.id" @emit-vote="emitVote"></component>
+			</div>
+		</div>`
+	,
+	methods: {
+		emitVote(id) {
+			this.$emit('emit-vote',id)
+		}
+	}
+})
+
+/*
+const cardListContainer = Vue.extend({
+	props: ["object","url","viewcomp"],
+	data() {
+		return {
+			view: this.viewcomp
+		}
+	},
+	components: {
+		cardItemL,
+		'child1': slotChildComp1,
+		'child2': slotChildComp2,
+	},
+	template: `
+		<div class="ranking-top_content">
+			<dl class="header">
+				<dt class="label"><strong><slot name="label"></slot></strong></dt>
+				<dd class="more"><a :href="url" class="more_link">もっと見る</a></dd>
+			</dl>
+				<component :is="view" :obj="object"></component>
+			<div class="card_list_wrap">
+				<card-item-l v-for="obj in object" :obj="obj" :key="obj.id" @emit-vote="emitVote"></card-item-l>
+			</div>
+		</div>`
+	,
+	methods: {
+		emitVote(id) {
+			this.$emit('emit-vote',id)
+		}
+	}
+})
+*/
+
+new Vue({
+	el: "#vueRankingTopContent",
+	components: {
+		cardListContainer,
+	},
+	methods: {
+		emitVote(id) {
+			console.log(id)
+		}
+	}
+})
+</script>
+</body>
+</html>

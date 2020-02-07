@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>無題ドキュメント</title>
+<meta name="viewport" content="width=devise-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/ranking.css">
+</head>
+<body id="ranking">
+
+<div id="container" class="ranking">
+
+  <div class="ranking-entry_form">
+    <div class="label">エントリー写真を選ぶ<img src="./img/required.png" class="required"></div>
+    <ul class="entry_photo_wra">
+      <li class="photo_wrap"><input type="radio" name="id" value="1" id="1" class="hiddenElement photo_check"><label for="1" class="photo_label"><img src="./img/mio.jpg" width="100%" class="photo"></label></li>
+      <li class="photo_wrap"><input type="radio" name="id" value="2" id="2" class="hiddenElement photo_check"><label for="2" class="photo_label"><img src="./img/mio.jpg" width="100%" class="photo"></label></li>
+      <li class="photo_wrap"><input type="radio" name="id" value="3" id="3" class="hiddenElement photo_check"><label for="3" class="photo_label"><img src="./img/mio.jpg" width="100%" class="photo"></label></li>
+      <li class="photo_wrap"><input type="radio" name="id" value="4" id="4" class="hiddenElement photo_check"><label for="4" class="photo_label"><img src="./img/mio.jpg" width="100%" class="photo"></label></li>
+      <li class="photo_wrap"><input type="radio" name="id" value="5" id="5" class="hiddenElement photo_check"><label for="5" class="photo_label"><img src="./img/mio.jpg" width="100%" class="photo"></label></li>
+    </ul>
+    <p class="entry_description">
+      エントリーできる写真はプロフィール写真のみです。<br>
+      プロフィール写真設定は最大5枚まで登録できます。<br>
+      新たな写真を掲載する場合はすでに掲載しているものを削除してから行って下さい。
+    </p>
+    <div class="label">コメント(任意)</div>
+    <div class="comment_area"><textarea></textarea></div>
+    <input type="submit" class="mdl_button-green" value="エントリーする">
+  </div>
+
+</div><!--/container-->
+
+<script src="https://unpkg.com/vue/dist/vue.min.js" as="script"></script>
+<script type="module">
+'use strict'
+
+
+</script>
+</body>
+</html>

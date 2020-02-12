@@ -41,6 +41,13 @@ $baseColor_turtlegreen: #83c44e;
 	--baes-border-color: #e6e6e6;
 }
 
+@mixin font_hiragino_w3 {
+	font-family: "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3";
+}
+@mixin font_hiragino_w6 {
+	font-family: "ヒラギノ角ゴ ProN W6","HiraKakuProN-W6","ヒラギノ角ゴ Pro W6","HiraKakuPro-W6";
+}
+
 @mixin base_button_style($backgroundColor,$fontColor:#fff, $fontSize:14, $width:100%, $height:50,$shadow:use) {
   display: flex;
   align-items: center;
@@ -69,7 +76,7 @@ input[type="submit"].mdl_button-green {
 }
 
 body#ranking {
-	font-family: "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3" !important;
+	//font-family: "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3" !important;
 	font-size: vw(14);
 }
 
@@ -604,6 +611,143 @@ body#ranking {
 					}
 				}
 			}
+		}
+	}
+}
+
+
+.ranking-myrank_container {
+	padding: vw(18) vw(25) vw(32);
+	background-color: var(--base-color-white);
+	margin-top: vw(10);
+	.myrank_header {
+		display: flex;
+		align-items: center;
+		padding: 0 vw(14);
+		.thumb {
+			flex-basis: vw(80);
+			.photo {
+				border-radius: 50%;
+			}
+		}
+		.body {
+			flex: 1;
+			padding-left: vw(12);
+			.name {
+				font-size: vw(20);
+				margin-bottom: vw(14);
+			}
+			.btn_edit {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: vw(106);
+				height: vw(24);
+				color: var(--base-color-lightgray);
+				font-size: vw(12);
+				border: 1px solid var(--base-color-lightgray);
+				border-radius: vw(12);
+				background-color: var(--base-color-white);
+			}
+		}
+	}
+	.myrank_vote_status {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		height: vw(70);
+		margin-top: vw(22);
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			bottom: vw(2);
+			left: 50%;
+			width: 1px;
+			height: vw(54);
+			background-color: var(--base-color-warmgray);
+		}
+		.wrap {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.label {
+				color: var(--base-color-lightgray);
+				font-size: vw(12);
+				font-weight: bold;
+			}
+			.body {
+				flex: 1;
+				display: flex;
+				align-items: center;
+				justify-self: center;
+				@include font_hiragino_w6;
+				font-size: vw(18);
+				.emph {
+					font-size: vw(24);
+				}
+			}
+			.total {
+				@include font_hiragino_w6;
+				color: var(--base-color-gray);
+				font-size: vw(10);
+			}
+		}
+	}
+	.myrank_vote_by_category {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: vw(16) 0;
+		padding-left: vw(20);
+		margin-top: vw(36);
+		.category_wrap {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			color: var(--base-color-gray);
+			&::before {
+				content: "";
+				display: block;
+				width: vw(24);
+				height: vw(24);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: vw(24);
+				margin-right: vw(5);
+			}
+			$icon_name: bijo,cute,erotic,healingwoman2;
+			@each $name in $icon_name {
+				&.#{$name}::before {
+					background-image: url(../img/vote/icon_#{$name}.png);
+				}
+			}
+			.label {
+				font-size: vw(10);
+			}
+			.vote {
+				flex: 1;
+				font-size: vw(12);
+				padding-left: vw(4);
+				.emph {
+					@include font_hiragino_w6;
+					font-size: vw(18);
+				}
+			}
+		}
+	}
+	.myrank_self_comment {
+		font-size: vw(12);
+		padding: vw(10) vw(20);
+		border-radius: 7px;
+		background-color: var(--base-background-gray);
+		margin-top: vw(28);
+		.label {
+			color: var(--base-color-lightgray);
+			margin-bottom: vw(8);
+		}
+		.comment {
+			color: var(--base-color-warmgray);
 		}
 	}
 }

@@ -33,7 +33,6 @@ input[type="submit"].mdl_button-green {
 }
 
 body#ranking {
-  font-family: "ヒラギノ角ゴ ProN W3","HiraKakuProN-W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3" !important;
   font-size: 3.7vw;
 }
 
@@ -757,4 +756,192 @@ body#ranking {
 .ranking_type_list .ranking_type_list_item .more_content .recent_list .list_item .thumb {
   border-radius: 50%;
   border: 2px solid var(--base-color-white);
+}
+
+.ranking-myrank_container {
+  padding: 4.8vw 6.7vw 8.5vw;
+  background-color: var(--base-color-white);
+  margin-top: 2.7vw;
+}
+
+.ranking-myrank_container .myrank_header {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  padding: 0 3.7vw;
+}
+
+.ranking-myrank_container .myrank_header .thumb {
+  flex-basis: 21.3vw;
+}
+
+.ranking-myrank_container .myrank_header .thumb .photo {
+  border-radius: 50%;
+}
+
+.ranking-myrank_container .myrank_header .body {
+  -webkit-box-flex: 1;
+          flex: 1;
+  padding-left: 3.2vw;
+}
+
+.ranking-myrank_container .myrank_header .body .name {
+  font-size: 5.3vw;
+  margin-bottom: 3.7vw;
+}
+
+.ranking-myrank_container .myrank_header .body .btn_edit {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  width: 28.3vw;
+  height: 6.4vw;
+  color: var(--base-color-lightgray);
+  font-size: 3.2vw;
+  border: 1px solid var(--base-color-lightgray);
+  border-radius: 3.2vw;
+  background-color: var(--base-color-white);
+}
+
+.ranking-myrank_container .myrank_vote_status {
+  position: relative;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: stretch;
+          align-items: stretch;
+  height: 18.7vw;
+  margin-top: 5.9vw;
+}
+
+.ranking-myrank_container .myrank_vote_status::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0.5vw;
+  left: 50%;
+  width: 1px;
+  height: 14.4vw;
+  background-color: var(--base-color-warmgray);
+}
+
+.ranking-myrank_container .myrank_vote_status .wrap {
+  -webkit-box-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.ranking-myrank_container .myrank_vote_status .wrap .label {
+  color: var(--base-color-lightgray);
+  font-size: 3.2vw;
+  font-weight: bold;
+}
+
+.ranking-myrank_container .myrank_vote_status .wrap .body {
+  -webkit-box-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  justify-self: center;
+  font-family: "ヒラギノ角ゴ ProN W6","HiraKakuProN-W6","ヒラギノ角ゴ Pro W6","HiraKakuPro-W6";
+  font-size: 4.8vw;
+}
+
+.ranking-myrank_container .myrank_vote_status .wrap .body .emph {
+  font-size: 6.4vw;
+}
+
+.ranking-myrank_container .myrank_vote_status .wrap .total {
+  font-family: "ヒラギノ角ゴ ProN W6","HiraKakuProN-W6","ヒラギノ角ゴ Pro W6","HiraKakuPro-W6";
+  color: var(--base-color-gray);
+  font-size: 2.7vw;
+}
+
+.ranking-myrank_container .myrank_vote_by_category {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.3vw 0;
+  padding-left: 5.3vw;
+  margin-top: 9.6vw;
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  color: var(--base-color-gray);
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap::before {
+  content: "";
+  display: block;
+  width: 6.4vw;
+  height: 6.4vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6.4vw;
+  margin-right: 1.3vw;
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap.bijo::before {
+  background-image: url(../img/vote/icon_bijo.png);
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap.cute::before {
+  background-image: url(../img/vote/icon_cute.png);
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap.erotic::before {
+  background-image: url(../img/vote/icon_erotic.png);
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap.healingwoman2::before {
+  background-image: url(../img/vote/icon_healingwoman2.png);
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap .label {
+  font-size: 2.7vw;
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap .vote {
+  -webkit-box-flex: 1;
+          flex: 1;
+  font-size: 3.2vw;
+  padding-left: 1.1vw;
+}
+
+.ranking-myrank_container .myrank_vote_by_category .category_wrap .vote .emph {
+  font-family: "ヒラギノ角ゴ ProN W6","HiraKakuProN-W6","ヒラギノ角ゴ Pro W6","HiraKakuPro-W6";
+  font-size: 4.8vw;
+}
+
+.ranking-myrank_container .myrank_self_comment {
+  font-size: 3.2vw;
+  padding: 2.7vw 5.3vw;
+  border-radius: 7px;
+  background-color: var(--base-background-gray);
+  margin-top: 7.5vw;
+}
+
+.ranking-myrank_container .myrank_self_comment .label {
+  color: var(--base-color-lightgray);
+  margin-bottom: 2.1vw;
+}
+
+.ranking-myrank_container .myrank_self_comment .comment {
+  color: var(--base-color-warmgray);
 }
